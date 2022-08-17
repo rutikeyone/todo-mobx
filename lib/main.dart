@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:to_do/my_app.dart';
+import 'package:to_do/core/di/impl/di_container_impl.dart';
 
 void main() {
-  runApp(const MyApp());
+  final diContainer = makeDIContainer();
+  runApp(diContainer.makeApp());
 }

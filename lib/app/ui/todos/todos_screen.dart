@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+import 'package:to_do/app/store/todos_store/todos_store.dart';
 import 'package:to_do/app/ui/todos/todos_page.dart';
 
 class TodosScreen extends StatelessWidget {
@@ -6,6 +8,9 @@ class TodosScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TodosPage();
+    return Provider(
+      create: (context) => TodosStore(),
+      child: const TodosPage(),
+    );
   }
 }
