@@ -21,5 +21,10 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "changed_dark_theme_message": MessageLookupByLibrary.simpleMessage(
+            "You have changed the themes to dark"),
+        "changed_light_theme_message": MessageLookupByLibrary.simpleMessage(
+            "You have changed the themes to light")
+      };
 }

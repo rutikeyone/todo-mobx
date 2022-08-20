@@ -49,6 +49,26 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `You have changed the themes to dark`
+  String get changed_dark_theme_message {
+    return Intl.message(
+      'You have changed the themes to dark',
+      name: 'changed_dark_theme_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have changed the themes to light`
+  String get changed_light_theme_message {
+    return Intl.message(
+      'You have changed the themes to light',
+      name: 'changed_light_theme_message',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

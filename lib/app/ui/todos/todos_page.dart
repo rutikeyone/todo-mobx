@@ -1,10 +1,11 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/app/store/todos_store/todos_store.dart';
 import 'package:to_do/app/ui/todos/widget/todos_app_bar.dart';
+import 'package:to_do/core/utils/easy_snackbar.dart';
+import 'package:to_do/generated/l10n.dart';
 
 class TodosPage extends StatefulWidget {
   const TodosPage({Key? key}) : super(key: key);
@@ -24,9 +25,16 @@ class _TodosPageState extends State<TodosPage> {
     themeReaction = reaction<ThemeStatus?>(
       ((_) => store.themeStream.value),
       (value) => value == ThemeStatus.setLight
-          ? AdaptiveTheme.of(context).setLight()
-          : AdaptiveTheme.of(context).setDark(),
+          ? setTheme(AdaptiveThemeMode.light,
+              S.of(context).changed_light_theme_message)
+          : setTheme(
+              AdaptiveThemeMode.dark, S.of(context).changed_dark_theme_message),
     );
+  }
+
+  void setTheme(AdaptiveThemeMode themeMode, String label) {
+    AdaptiveTheme.of(context).setThemeMode(themeMode);
+    EasySnackbar.of(context: context).showSnackbar(label: label);
   }
 
   @override
@@ -39,7 +47,7 @@ class _TodosPageState extends State<TodosPage> {
   Widget build(BuildContext context) {
     return const SafeArea(
         child: Scaffold(
-      appBar: const PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(55),
         child: TodosAppBar(),
       ),
