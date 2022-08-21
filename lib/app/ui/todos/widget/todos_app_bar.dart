@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/app/store/todos_store/todos_store.dart';
+import 'package:to_do/app/theme/custom_color.dart';
 
 class TodosAppBar extends StatelessWidget {
   const TodosAppBar({
@@ -9,23 +10,25 @@ class TodosAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.read<TodosStore>();
+    final store = context.watch<TodosStore>();
+    final iconColor = Theme.of(context).extension<CustomColor>()!.iconColor1;
 
     return AppBar(
-      backgroundColor: Theme.of(context).primaryColor,
-      elevation: 0,
+      backgroundColor: Theme.of(context).backgroundColor,
       leading: IconButton(
-        icon: const Icon(
-          Icons.nightlight_round,
+        icon: Icon(
+          store.theme.isDarkMode ? Icons.nightlight_round : Icons.sunny,
           size: 20,
+          color: iconColor,
         ),
         onPressed: () => store.toggleChangeTheme(context),
       ),
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(
+          icon: Icon(
             Icons.person,
+            color: iconColor,
           ),
         ),
       ],

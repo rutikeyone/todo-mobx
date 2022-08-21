@@ -11,6 +11,7 @@ class CustomTheme {
     ],
     primaryColor: dark.primary,
     brightness: Brightness.dark,
+    backgroundColor: dark.darkHeader1,
   );
 
   static final lightTheme = ThemeData(
@@ -19,5 +20,6 @@ class CustomTheme {
     ],
     primaryColor: light.primary,
     brightness: Brightness.light,
+    backgroundColor: Colors.white,
   );
 }

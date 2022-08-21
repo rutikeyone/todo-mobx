@@ -1,4 +1,3 @@
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
@@ -25,16 +24,11 @@ class _TodosPageState extends State<TodosPage> {
     themeReaction = reaction<ThemeStatus?>(
       ((_) => store.themeStream.value),
       (value) => value == ThemeStatus.setLight
-          ? setTheme(AdaptiveThemeMode.light,
-              S.of(context).changed_light_theme_message)
-          : setTheme(
-              AdaptiveThemeMode.dark, S.of(context).changed_dark_theme_message),
+          ? EasySnackbar.of(context: context)
+              .showSnackbar(label: S.of(context).changed_light_theme_message)
+          : EasySnackbar.of(context: context)
+              .showSnackbar(label: S.of(context).changed_dark_theme_message),
     );
-  }
-
-  void setTheme(AdaptiveThemeMode themeMode, String label) {
-    AdaptiveTheme.of(context).setThemeMode(themeMode);
-    EasySnackbar.of(context: context).showSnackbar(label: label);
   }
 
   @override

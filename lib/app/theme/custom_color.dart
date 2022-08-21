@@ -8,11 +8,14 @@ class CustomColor extends ThemeExtension<CustomColor> {
 
   final Color darkHeader1;
 
+  final Color iconColor1;
+
   const CustomColor({
     required this.primary,
     required this.yellow1,
     required this.pink1,
     required this.white1,
+    required this.iconColor1,
     required this.darkHeader1,
   });
 
@@ -21,6 +24,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     yellow1: Color(0xFFFFB746),
     pink1: Color(0xFFFF4667),
     white1: Color(0xFFFFFFFF),
+    iconColor1: Colors.black,
     darkHeader1: Color(0xFF424242),
   );
 
@@ -29,6 +33,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     yellow1: Color(0xFFFFB746),
     pink1: Color(0xFFFF4667),
     white1: Color(0xFFFFFFFF),
+    iconColor1: Colors.white,
     darkHeader1: Color(0xFF424242),
   );
 
@@ -43,6 +48,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
       yellow1: Color.lerp(yellow1, other.yellow1, t)!,
       pink1: Color.lerp(pink1, other.pink1, t)!,
       white1: Color.lerp(white1, other.white1, t)!,
+      iconColor1: Color.lerp(iconColor1, other.iconColor1, t)!,
       darkHeader1: Color.lerp(darkHeader1, other.darkHeader1, t)!,
     );
   }
@@ -54,6 +60,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     Color? pink1,
     Color? white1,
     Color? darkGrey1,
+    Color? iconColor1,
     Color? darkHeader1,
   }) {
     return CustomColor(
@@ -61,6 +68,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
       yellow1: yellow1 ?? this.yellow1,
       pink1: pink1 ?? this.pink1,
       white1: white1 ?? this.white1,
+      iconColor1: iconColor1 ?? this.iconColor1,
       darkHeader1: darkHeader1 ?? this.darkHeader1,
     );
   }

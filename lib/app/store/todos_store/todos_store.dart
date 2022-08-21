@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:to_do/app/store/theme/theme_store.dart';
 
 part 'todos_store.g.dart';
 
@@ -12,20 +12,28 @@ enum ThemeStatus { setLight, setDark }
 class TodosStore = TodosStoreBase with _$TodosStore;
 
 abstract class TodosStoreBase with Store {
+  late final ThemeStore _themeStore;
   late final ObservableStream<ThemeStatus> themeStream;
   late final StreamController<ThemeStatus> _themeController;
 
-  TodosStoreBase() {
+  ThemeStore get theme => _themeStore;
+
+  TodosStoreBase({required ThemeStore themeStore}) {
+    _themeStore = themeStore;
     _themeController = BehaviorSubject();
     themeStream = ObservableStream(_themeController.stream);
   }
 
+  void _setTheme(ThemeMode mode, ThemeStatus status) {
+    _themeStore.setTheme(mode);
+    _themeController.add(status);
+  }
+
   @action
   Future toggleChangeTheme(BuildContext context) async {
-    final mode = await AdaptiveTheme.getThemeMode();
-    mode == AdaptiveThemeMode.light
-        ? _themeController.add(ThemeStatus.setDark)
-        : _themeController.add(ThemeStatus.setLight);
+    _themeStore.isLightMode
+        ? _setTheme(ThemeMode.dark, ThemeStatus.setDark)
+        : _setTheme(ThemeMode.light, ThemeStatus.setLight);
   }
 
   void dispose() async {
