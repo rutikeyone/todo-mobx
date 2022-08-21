@@ -1,4 +1,5 @@
 {
     "changed_dark_theme_message" : "You have changed the themes to dark",
-    "changed_light_theme_message" : "You have changed the themes to light"
+    "changed_light_theme_message" : "You have changed the themes to light",
+    "today" : "Today"
 }

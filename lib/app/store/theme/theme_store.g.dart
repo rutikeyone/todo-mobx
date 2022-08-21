@@ -28,13 +28,13 @@ mixin _$ThemeStore on ThemeStoreBase, Store {
       Atom(name: 'ThemeStoreBase.themeMode', context: context);
 
   @override
-  ThemeMode get themeMode {
+  ThemeMode? get themeMode {
     _$themeModeAtom.reportRead();
     return super.themeMode;
   }
 
   @override
-  set themeMode(ThemeMode value) {
+  set themeMode(ThemeMode? value) {
     _$themeModeAtom.reportWrite(value, super.themeMode, () {
       super.themeMode = value;
     });

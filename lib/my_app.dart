@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:to_do/app/store/theme/theme_store.dart';
 import 'package:to_do/app/theme/custom_theme.dart';
-import 'package:to_do/core/di/locator.dart';
+import 'package:to_do/core/di/service_locator/locator.dart';
 import 'package:to_do/core/di/my_app_args.dart';
 import 'package:to_do/generated/l10n.dart';
 

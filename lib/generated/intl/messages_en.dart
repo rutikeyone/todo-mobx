@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changed_dark_theme_message": MessageLookupByLibrary.simpleMessage(
             "You have changed the themes to dark"),
         "changed_light_theme_message": MessageLookupByLibrary.simpleMessage(
-            "You have changed the themes to light")
+            "You have changed the themes to light"),
+        "today": MessageLookupByLibrary.simpleMessage("Today")
       };
 }
