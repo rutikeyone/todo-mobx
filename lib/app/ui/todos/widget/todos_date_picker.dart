@@ -32,11 +32,11 @@ class TodosDatePicker extends StatelessWidget {
           selectedTextColor: Colors.white,
           onDateChange: changeDateTime,
           dateTextStyle:
-              Theme.of(context).extension<CustomTextTheme>()!.dateTextStyle,
+              Theme.of(context).extension<CustomTextTheme>()!.heading2,
           dayTextStyle:
-              Theme.of(context).extension<CustomTextTheme>()!.dayTextStyle,
+              Theme.of(context).extension<CustomTextTheme>()!.heading3,
           monthTextStyle:
-              Theme.of(context).extension<CustomTextTheme>()!.monthTextStyle,
+              Theme.of(context).extension<CustomTextTheme>()!.heading4,
         ),
       ),
     );

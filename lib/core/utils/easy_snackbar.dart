@@ -12,7 +12,7 @@ class EasySnackbar {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: duration ?? const Duration(milliseconds: 300),
+        duration: duration ?? const Duration(milliseconds: 600),
         content: Text(
           label,
         ),

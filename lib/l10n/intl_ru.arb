@@ -2,5 +2,7 @@
     "changed_dark_theme_message" : "Вы изменили цвет на темную",
     "changed_light_theme_message" : "Вы изменили цвет на светлую",
     "today" : "Сегодня",
-    "add_task" : "Добавить"
+    "add_task" : "Добавить",
+    "title" : "Заголовок",
+    "title_hint" : "Введите заголовок"
 }

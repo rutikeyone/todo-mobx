@@ -5,17 +5,17 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
   final TextStyle subHeading1;
   final TextStyle heading1;
-  final TextStyle dateTextStyle;
-  final TextStyle dayTextStyle;
-  final TextStyle monthTextStyle;
+  final TextStyle heading2;
+  final TextStyle heading3;
+  final TextStyle heading4;
   final TextStyle buttonTextStyle1;
 
   const CustomTextTheme({
     required this.subHeading1,
     required this.heading1,
-    required this.dateTextStyle,
-    required this.dayTextStyle,
-    required this.monthTextStyle,
+    required this.heading2,
+    required this.heading3,
+    required this.heading4,
     required this.buttonTextStyle1,
   });
 
@@ -34,21 +34,21 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
         color: Colors.black,
       ),
     ),
-    dateTextStyle: GoogleFonts.lato(
+    heading2: GoogleFonts.lato(
       textStyle: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
         color: Colors.grey,
       ),
     ),
-    dayTextStyle: GoogleFonts.lato(
+    heading3: GoogleFonts.lato(
       textStyle: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
         color: Colors.grey,
       ),
     ),
-    monthTextStyle: GoogleFonts.lato(
+    heading4: GoogleFonts.lato(
       textStyle: const TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,
@@ -75,21 +75,21 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
         color: Colors.white,
       ),
     ),
-    dateTextStyle: GoogleFonts.lato(
+    heading2: GoogleFonts.lato(
       textStyle: const TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
         color: Colors.grey,
       ),
     ),
-    dayTextStyle: GoogleFonts.lato(
+    heading3: GoogleFonts.lato(
       textStyle: const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.bold,
         color: Colors.grey,
       ),
     ),
-    monthTextStyle: GoogleFonts.lato(
+    heading4: GoogleFonts.lato(
       textStyle: const TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,
@@ -111,9 +111,9 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     return CustomTextTheme(
       subHeading1: TextStyle.lerp(subHeading1, other.subHeading1, t)!,
       heading1: TextStyle.lerp(heading1, other.heading1, t)!,
-      dateTextStyle: TextStyle.lerp(dateTextStyle, other.dateTextStyle, t)!,
-      dayTextStyle: TextStyle.lerp(dayTextStyle, other.dayTextStyle, t)!,
-      monthTextStyle: TextStyle.lerp(monthTextStyle, other.monthTextStyle, t)!,
+      heading2: TextStyle.lerp(heading2, other.heading2, t)!,
+      heading3: TextStyle.lerp(heading3, other.heading3, t)!,
+      heading4: TextStyle.lerp(heading4, other.heading4, t)!,
       buttonTextStyle1:
           TextStyle.lerp(buttonTextStyle1, other.buttonTextStyle1, t)!,
     );
@@ -123,17 +123,17 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
   CustomTextTheme copyWith({
     TextStyle? subHeading1,
     TextStyle? heading1,
-    TextStyle? dateTextStyle,
-    TextStyle? dayTextStyle,
-    TextStyle? monthTextStyle,
+    TextStyle? heading2,
+    TextStyle? heading3,
+    TextStyle? heading4,
     TextStyle? buttonTextStyle1,
   }) {
     return CustomTextTheme(
       subHeading1: subHeading1 ?? this.subHeading1,
       heading1: heading1 ?? this.heading1,
-      dateTextStyle: dateTextStyle ?? this.dateTextStyle,
-      dayTextStyle: dayTextStyle ?? this.dayTextStyle,
-      monthTextStyle: monthTextStyle ?? this.monthTextStyle,
+      heading2: heading2 ?? this.heading2,
+      heading3: heading3 ?? this.heading3,
+      heading4: heading4 ?? this.heading4,
       buttonTextStyle1: buttonTextStyle1 ?? this.buttonTextStyle1,
     );
   }
