@@ -14,6 +14,7 @@ class TodosAppBar extends StatelessWidget {
     final iconColor = Theme.of(context).extension<CustomColor>()!.iconColor1;
 
     return AppBar(
+      elevation: 0,
       backgroundColor: Theme.of(context).backgroundColor,
       leading: IconButton(
         icon: Icon(

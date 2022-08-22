@@ -1,5 +1,6 @@
 {
     "changed_dark_theme_message" : "You have changed the themes to dark",
     "changed_light_theme_message" : "You have changed the themes to light",
-    "today" : "Today"
+    "today" : "Today",
+    "add_task" : "Add task"
 }

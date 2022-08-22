@@ -18,10 +18,16 @@ abstract class TodosStoreBase with Store {
 
   ThemeStore get theme => _themeStore;
 
-  TodosStoreBase({required ThemeStore themeStore}) {
+  @observable
+  DateTime _selectedDateTime;
+  DateTime get selectedDateTime => _selectedDateTime;
+
+  TodosStoreBase({required ThemeStore themeStore})
+      : _selectedDateTime = DateTime.now() {
     _themeStore = themeStore;
     _themeController = BehaviorSubject();
     themeStream = ObservableStream(_themeController.stream);
+    _selectedDateTime = DateTime.now();
   }
 
   void _setTheme(ThemeMode mode, ThemeStatus status) {
@@ -34,6 +40,11 @@ abstract class TodosStoreBase with Store {
     _themeStore.isLightMode
         ? _setTheme(ThemeMode.dark, ThemeStatus.setDark)
         : _setTheme(ThemeMode.light, ThemeStatus.setLight);
+  }
+
+  @action
+  void changeSelectedDateTime(DateTime date) {
+    _selectedDateTime = date;
   }
 
   void dispose() async {

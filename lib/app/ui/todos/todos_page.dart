@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:to_do/app/routes/app_router.dart';
 import 'package:to_do/app/store/todos_store/todos_store.dart';
-import 'package:to_do/app/theme/custom_text_theme.dart';
+import 'package:to_do/app/ui/todos/widget/todos_date_picker.dart';
+import 'package:to_do/app/ui/todos/widget/add_task_tile.dart';
 import 'package:to_do/app/ui/todos/widget/todos_app_bar.dart';
 import 'package:to_do/core/utils/easy_snackbar.dart';
 import 'package:to_do/generated/l10n.dart';
@@ -42,39 +44,27 @@ class _TodosPageState extends State<TodosPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(55),
-        child: TodosAppBar(),
-      ),
-      body: Column(
-        children: [
-          Row(
+      child: Scaffold(
+        backgroundColor: Theme.of(context).backgroundColor,
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(55),
+          child: TodosAppBar(),
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      DateFormat.yMMMEd().format(DateTime.now()),
-                      style: Theme.of(context)
-                          .extension<CustomTextTheme>()!
-                          .subHeading1,
-                    ),
-                    Text(
-                      S.of(context).today,
-                      style: Theme.of(context)
-                          .extension<CustomTextTheme>()!
-                          .heading1,
-                    ),
-                  ],
-                ),
-              )
+              AddTaskTile(
+                addTaskOnPressed: () =>
+                    context.router.push(const AddTaskScreenRoute()),
+              ),
+              TodosDatePicker(
+                changeDateTime: store.changeSelectedDateTime,
+              ),
             ],
-          )
-        ],
+          ),
+        ),
       ),
-    ));
+    );
   }
 }

@@ -29,7 +29,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
   );
 
   static const darkColor = CustomColor(
-    primary: Color(0xFF121212),
+    primary: Color(0xFF4e5ae8),
     yellow1: Color(0xFFFFB746),
     pink1: Color(0xFFFF4667),
     white1: Color(0xFFFFFFFF),
