@@ -18,12 +18,16 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     TodosScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<TodosScreenRouteArgs>(
+          orElse: () => const TodosScreenRouteArgs());
       return CupertinoPageX<dynamic>(
-          routeData: routeData, child: const TodosScreen());
+          routeData: routeData, child: TodosScreen(key: args.key));
     },
     AddTaskScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<AddTaskScreenRouteArgs>(
+          orElse: () => const AddTaskScreenRouteArgs());
       return CupertinoPageX<dynamic>(
-          routeData: routeData, child: const AddTaskScreen());
+          routeData: routeData, child: AddTaskScreen(key: args.key));
     }
   };
 
@@ -38,17 +42,42 @@ class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [TodosScreen]
-class TodosScreenRoute extends PageRouteInfo<void> {
-  const TodosScreenRoute() : super(TodosScreenRoute.name, path: 'todo-screen');
+class TodosScreenRoute extends PageRouteInfo<TodosScreenRouteArgs> {
+  TodosScreenRoute({Key? key})
+      : super(TodosScreenRoute.name,
+            path: 'todo-screen', args: TodosScreenRouteArgs(key: key));
 
   static const String name = 'TodosScreenRoute';
 }
 
+class TodosScreenRouteArgs {
+  const TodosScreenRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'TodosScreenRouteArgs{key: $key}';
+  }
+}
+
 /// generated route for
 /// [AddTaskScreen]
-class AddTaskScreenRoute extends PageRouteInfo<void> {
-  const AddTaskScreenRoute()
-      : super(AddTaskScreenRoute.name, path: 'add-task-screen');
+class AddTaskScreenRoute extends PageRouteInfo<AddTaskScreenRouteArgs> {
+  AddTaskScreenRoute({Key? key})
+      : super(AddTaskScreenRoute.name,
+            path: 'add-task-screen', args: AddTaskScreenRouteArgs(key: key));
 
   static const String name = 'AddTaskScreenRoute';
+}
+
+class AddTaskScreenRouteArgs {
+  const AddTaskScreenRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AddTaskScreenRouteArgs{key: $key}';
+  }
 }

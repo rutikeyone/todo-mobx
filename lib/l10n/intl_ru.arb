@@ -4,5 +4,14 @@
     "today" : "Сегодня",
     "add_task" : "Добавить",
     "title" : "Заголовок",
-    "title_hint" : "Введите заголовок"
+    "title_hint" : "Введите заголовок",
+    "empty_text_field" : "Пустое текстовое поле",
+    "invalid_value" : "Некорректное значение",
+    "note" : "Запись",
+    "note_hint" : "Введите запись",
+    "date" : "Дата",
+    "start_time" : "Начало",
+    "end_time" : "Конец",
+    "start_time_is_after_end_time" : "Дата начала после даты окончания",
+    "end_time_is_between_start_time" : "Дата конца раньше даты начала"    
 }

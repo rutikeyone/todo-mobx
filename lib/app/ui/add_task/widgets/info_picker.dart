@@ -2,30 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:to_do/app/theme/custom_color.dart';
 import 'package:to_do/app/theme/custom_text_theme.dart';
 
-class TextInputFieldTypeOne extends StatelessWidget {
+class InfoPicker extends StatelessWidget {
   final String title;
-  final String? error;
-  final void Function(String) onChanged;
-  final String? hint;
+  final String value;
   final double? topPadding;
+  final double? width;
+  final String? error;
+  final VoidCallback onTap;
 
   bool get hasError => error != null;
 
-  const TextInputFieldTypeOne({
+  const InfoPicker({
     Key? key,
     required this.title,
-    required this.onChanged,
-    this.error,
-    this.hint,
+    required this.value,
+    required this.onTap,
+    this.width,
     this.topPadding,
+    this.error,
   }) : super(key: key);
-
-  InputBorder getOutlineInputBorder(BuildContext context) => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(
-          color: Theme.of(context).extension<CustomColor>()!.textFieldBorder1,
-        ),
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -40,29 +35,40 @@ class TextInputFieldTypeOne extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: TextField(
-              onChanged: onChanged,
-              decoration: InputDecoration(
-                labelStyle:
-                    Theme.of(context).extension<CustomTextTheme>()!.labelStyle1,
-                hintStyle:
-                    Theme.of(context).extension<CustomTextTheme>()!.hintStyle1,
-                hintText: hint,
-                isDense: true,
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
-                enabledBorder: getOutlineInputBorder(context),
-                focusedBorder: getOutlineInputBorder(context),
+            child: GestureDetector(
+              onTap: onTap,
+              child: Container(
+                alignment: Alignment.centerLeft,
+                height: 50,
+                width: width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Theme.of(context)
+                        .extension<CustomColor>()!
+                        .textFieldBorder1,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text(
+                    value,
+                    style: Theme.of(context)
+                        .extension<CustomTextTheme>()!
+                        .hintStyle1
+                        .copyWith(fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
             ),
           ),
           SizedBox(
-            height: hasError ? 30 : 0,
+            height: hasError ? 50 : 0,
             child: AnimatedOpacity(
               opacity: hasError ? 1 : 0,
               duration: const Duration(milliseconds: 200),
               child: Padding(
-                  padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
+                  padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -70,6 +76,7 @@ class TextInputFieldTypeOne extends StatelessWidget {
                       style: Theme.of(context)
                           .extension<CustomTextTheme>()!
                           .errorStyle1,
+                      maxLines: 2,
                     ),
                   )),
             ),

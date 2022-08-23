@@ -4,5 +4,14 @@
     "today" : "Today",
     "add_task" : "Add task",
     "title" : "Title",
-    "title_hint" : "Enter title here"
+    "title_hint" : "Enter title here",
+    "empty_text_field" : "Empty text field",
+    "invalid_value" : "Invalid value",
+    "note" : "Note",
+    "note_hint" : "Enter note here",     
+    "date" : "Date",
+    "start_time" : "Start time",
+    "end_time" : "End time",
+    "start_time_is_after_end_time" : "Start time is after end time",
+    "end_time_is_between_start_time" : "End time is between start time"    
 }

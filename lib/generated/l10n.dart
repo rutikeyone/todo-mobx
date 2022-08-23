@@ -109,6 +109,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Empty text field`
+  String get empty_text_field {
+    return Intl.message(
+      'Empty text field',
+      name: 'empty_text_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid value`
+  String get invalid_value {
+    return Intl.message(
+      'Invalid value',
+      name: 'invalid_value',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Note`
+  String get note {
+    return Intl.message(
+      'Note',
+      name: 'note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter note here`
+  String get note_hint {
+    return Intl.message(
+      'Enter note here',
+      name: 'note_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start time`
+  String get start_time {
+    return Intl.message(
+      'Start time',
+      name: 'start_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End time`
+  String get end_time {
+    return Intl.message(
+      'End time',
+      name: 'end_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start time is after end time`
+  String get start_time_is_after_end_time {
+    return Intl.message(
+      'Start time is after end time',
+      name: 'start_time_is_after_end_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End time is between start time`
+  String get end_time_is_between_start_time {
+    return Intl.message(
+      'End time is between start time',
+      name: 'end_time_is_between_start_time',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

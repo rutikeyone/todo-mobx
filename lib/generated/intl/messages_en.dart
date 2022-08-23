@@ -27,6 +27,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "You have changed the themes to dark"),
         "changed_light_theme_message": MessageLookupByLibrary.simpleMessage(
             "You have changed the themes to light"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "empty_text_field":
+            MessageLookupByLibrary.simpleMessage("Empty text field"),
+        "end_time": MessageLookupByLibrary.simpleMessage("End time"),
+        "end_time_is_between_start_time": MessageLookupByLibrary.simpleMessage(
+            "End time is between start time"),
+        "invalid_value": MessageLookupByLibrary.simpleMessage("Invalid value"),
+        "note": MessageLookupByLibrary.simpleMessage("Note"),
+        "note_hint": MessageLookupByLibrary.simpleMessage("Enter note here"),
+        "start_time": MessageLookupByLibrary.simpleMessage("Start time"),
+        "start_time_is_after_end_time": MessageLookupByLibrary.simpleMessage(
+            "Start time is after end time"),
         "title": MessageLookupByLibrary.simpleMessage("Title"),
         "title_hint": MessageLookupByLibrary.simpleMessage("Enter title here"),
         "today": MessageLookupByLibrary.simpleMessage("Today")

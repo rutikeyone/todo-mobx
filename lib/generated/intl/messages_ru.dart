@@ -27,6 +27,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на темную"),
         "changed_light_theme_message":
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на светлую"),
+        "date": MessageLookupByLibrary.simpleMessage("Дата"),
+        "empty_text_field":
+            MessageLookupByLibrary.simpleMessage("Пустое текстовое поле"),
+        "end_time": MessageLookupByLibrary.simpleMessage("Конец"),
+        "end_time_is_between_start_time": MessageLookupByLibrary.simpleMessage(
+            "Дата конца раньше даты начала"),
+        "invalid_value":
+            MessageLookupByLibrary.simpleMessage("Некорректное значение"),
+        "note": MessageLookupByLibrary.simpleMessage("Запись"),
+        "note_hint": MessageLookupByLibrary.simpleMessage("Введите запись"),
+        "start_time": MessageLookupByLibrary.simpleMessage("Начало"),
+        "start_time_is_after_end_time": MessageLookupByLibrary.simpleMessage(
+            "Дата начала после даты окончания"),
         "title": MessageLookupByLibrary.simpleMessage("Заголовок"),
         "title_hint": MessageLookupByLibrary.simpleMessage("Введите заголовок"),
         "today": MessageLookupByLibrary.simpleMessage("Сегодня")

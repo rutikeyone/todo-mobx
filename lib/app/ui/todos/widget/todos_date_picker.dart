@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do/app/theme/custom_color.dart';
 import 'package:to_do/app/theme/custom_text_theme.dart';
 
 class TodosDatePicker extends StatelessWidget {

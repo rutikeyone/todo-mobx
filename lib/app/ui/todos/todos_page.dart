@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:provider/provider.dart';
 import 'package:to_do/app/routes/app_router.dart';
 import 'package:to_do/app/store/todos_store/todos_store.dart';
 import 'package:to_do/app/ui/todos/widget/todos_date_picker.dart';
@@ -11,22 +10,25 @@ import 'package:to_do/core/utils/easy_snackbar.dart';
 import 'package:to_do/generated/l10n.dart';
 
 class TodosPage extends StatefulWidget {
-  const TodosPage({Key? key}) : super(key: key);
+  final TodosStore store;
+
+  const TodosPage({
+    Key? key,
+    required this.store,
+  }) : super(key: key);
 
   @override
   State<TodosPage> createState() => _TodosPageState();
 }
 
 class _TodosPageState extends State<TodosPage> {
-  late final TodosStore store;
   late final ReactionDisposer themeReaction;
 
   @override
   void initState() {
     super.initState();
-    store = Provider.of<TodosStore>(context, listen: false);
     themeReaction = reaction<ThemeStatus?>(
-      ((_) => store.themeStream.value),
+      ((_) => widget.store.themeStream.value),
       (value) => value == ThemeStatus.setLight
           ? EasySnackbar.of(context: context)
               .showSnackbar(label: S.of(context).changed_light_theme_message)
@@ -37,7 +39,7 @@ class _TodosPageState extends State<TodosPage> {
 
   @override
   void dispose() {
-    store.dispose();
+    widget.store.dispose();
     super.dispose();
   }
 
@@ -56,10 +58,10 @@ class _TodosPageState extends State<TodosPage> {
             children: [
               AddTaskTile(
                 addTaskOnPressed: () =>
-                    context.router.push(const AddTaskScreenRoute()),
+                    context.router.push(AddTaskScreenRoute()),
               ),
               TodosDatePicker(
-                changeDateTime: store.changeSelectedDateTime,
+                changeDateTime: widget.store.changeSelectedDateTime,
               ),
             ],
           ),
