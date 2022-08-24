@@ -42,6 +42,7 @@ class TextInputFieldTypeOne extends StatelessWidget {
             padding: const EdgeInsets.only(top: 8),
             child: TextField(
               onChanged: onChanged,
+              textInputAction: TextInputAction.next,
               decoration: InputDecoration(
                 labelStyle:
                     Theme.of(context).extension<CustomTextTheme>()!.labelStyle1,
@@ -62,16 +63,17 @@ class TextInputFieldTypeOne extends StatelessWidget {
               opacity: hasError ? 1 : 0,
               duration: const Duration(milliseconds: 200),
               child: Padding(
-                  padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      error ?? '',
-                      style: Theme.of(context)
-                          .extension<CustomTextTheme>()!
-                          .errorStyle1,
-                    ),
-                  )),
+                padding: const EdgeInsets.only(top: 5, bottom: 5, left: 15),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    error ?? '',
+                    style: Theme.of(context)
+                        .extension<CustomTextTheme>()!
+                        .errorStyle1,
+                  ),
+                ),
+              ),
             ),
           ),
         ],

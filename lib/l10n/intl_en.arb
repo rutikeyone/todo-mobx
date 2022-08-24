@@ -13,5 +13,11 @@
     "start_time" : "Start time",
     "end_time" : "End time",
     "start_time_is_after_end_time" : "Start time is after end time",
-    "end_time_is_between_start_time" : "End time is between start time"    
+    "end_time_is_between_start_time" : "End time is between start time",
+    "remind" : "Remind",
+    "repeat" : "Repeat",
+    "five_minutes_early" : "5 minutes early",
+    "ten_minutes_early" : "10 minutes early",
+    "fifteen_minutes_early" : "15 minutes early",
+    "twenty_minutes_early" : "20 minutes early"
 }

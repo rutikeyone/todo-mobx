@@ -5,6 +5,7 @@ import 'package:to_do/app/theme/custom_text_theme.dart';
 class InfoPicker extends StatelessWidget {
   final String title;
   final String value;
+  final Widget? icon;
   final double? topPadding;
   final double? width;
   final String? error;
@@ -17,6 +18,7 @@ class InfoPicker extends StatelessWidget {
     required this.title,
     required this.value,
     required this.onTap,
+    this.icon,
     this.width,
     this.topPadding,
     this.error,
@@ -51,12 +53,17 @@ class InfoPicker extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    value,
-                    style: Theme.of(context)
-                        .extension<CustomTextTheme>()!
-                        .hintStyle1
-                        .copyWith(fontWeight: FontWeight.bold),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        value,
+                        style: Theme.of(context)
+                            .extension<CustomTextTheme>()!
+                            .hintStyle1,
+                      ),
+                      icon ?? const SizedBox.shrink(),
+                    ],
                   ),
                 ),
               ),

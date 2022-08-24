@@ -199,6 +199,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Remind`
+  String get remind {
+    return Intl.message(
+      'Remind',
+      name: 'remind',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Repeat`
+  String get repeat {
+    return Intl.message(
+      'Repeat',
+      name: 'repeat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `5 minutes early`
+  String get five_minutes_early {
+    return Intl.message(
+      '5 minutes early',
+      name: 'five_minutes_early',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `10 minutes early`
+  String get ten_minutes_early {
+    return Intl.message(
+      '10 minutes early',
+      name: 'ten_minutes_early',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `15 minutes early`
+  String get fifteen_minutes_early {
+    return Intl.message(
+      '15 minutes early',
+      name: 'fifteen_minutes_early',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `20 minutes early`
+  String get twenty_minutes_early {
+    return Intl.message(
+      '20 minutes early',
+      name: 'twenty_minutes_early',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

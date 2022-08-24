@@ -25,127 +25,95 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     required this.errorStyle1,
   });
 
-  static final lightTextStyle = CustomTextTheme(
-    subHeading1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        color: Colors.grey,
-      ),
+  static const lightTextStyle = CustomTextTheme(
+    subHeading1: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: Colors.grey,
     ),
-    heading1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
+    heading1: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
     ),
-    heading2: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: Colors.grey,
-      ),
+    heading2: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: Colors.grey,
     ),
-    heading3: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
+    heading3: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
     ),
-    hintStyle1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w200,
-        color: Colors.grey,
-      ),
+    hintStyle1: TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w400,
+      color: Colors.grey,
     ),
-    heading4: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-        color: Colors.grey,
-      ),
+    heading4: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      color: Colors.grey,
     ),
-    button1: const TextStyle(
+    button1: TextStyle(
       color: Colors.white,
     ),
-    labelStyle1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w200,
-        color: Colors.black,
-      ),
+    labelStyle1: TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
     ),
-    errorStyle1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w200,
-        color: Colors.red,
-      ),
+    errorStyle1: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: Colors.red,
     ),
   );
 
   static final darkTextStyle = CustomTextTheme(
-    subHeading1: GoogleFonts.lato(
-      textStyle: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        color: Colors.grey[400],
-      ),
+    subHeading1: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: Colors.grey[400],
     ),
-    heading1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-      ),
+    heading1: const TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
     ),
-    heading2: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: Colors.grey,
-      ),
+    heading2: const TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: Colors.grey,
     ),
-    heading3: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-      ),
+    heading3: const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
     ),
-    heading4: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-        color: Colors.grey,
-      ),
+    heading4: const TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      color: Colors.grey,
     ),
     button1: const TextStyle(
       color: Colors.white,
     ),
-    hintStyle1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w200,
-        color: Colors.grey,
-      ),
+    hintStyle1: const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w400,
+      color: Colors.grey,
     ),
-    labelStyle1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w200,
-        color: Colors.white,
-      ),
+    labelStyle1: const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
     ),
-    errorStyle1: GoogleFonts.lato(
-      textStyle: const TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w200,
-        color: Colors.red,
-      ),
+    errorStyle1: const TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: Colors.red,
     ),
   );
 

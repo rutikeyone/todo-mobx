@@ -13,5 +13,11 @@
     "start_time" : "Начало",
     "end_time" : "Конец",
     "start_time_is_after_end_time" : "Дата начала после даты окончания",
-    "end_time_is_between_start_time" : "Дата конца раньше даты начала"    
+    "end_time_is_between_start_time" : "Дата конца раньше даты начала",
+    "remind" : "Напоминание",
+    "repeat" : "Повторение",
+    "five_minutes_early" : "На 5 минут раньше",
+    "ten_minutes_early" : "На 10 минут раньше",
+    "fifteen_minutes_early" : "На 15 минут раньше",
+    "twenty_minutes_early" : "На 20 минут раньше"
 }

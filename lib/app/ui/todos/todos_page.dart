@@ -48,23 +48,33 @@ class _TodosPageState extends State<TodosPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(55),
-          child: TodosAppBar(),
-        ),
-        body: Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              AddTaskTile(
-                addTaskOnPressed: () =>
-                    context.router.push(AddTaskScreenRoute()),
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  const PreferredSize(
+                    preferredSize: Size.fromHeight(55),
+                    child: TodosAppBar(),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        AddTaskTile(
+                          addTaskOnPressed: () =>
+                              context.router.push(AddTaskScreenRoute()),
+                        ),
+                        TodosDatePicker(
+                          changeDateTime: widget.store.changeSelectedDateTime,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              TodosDatePicker(
-                changeDateTime: widget.store.changeSelectedDateTime,
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

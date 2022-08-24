@@ -33,14 +33,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "end_time": MessageLookupByLibrary.simpleMessage("End time"),
         "end_time_is_between_start_time": MessageLookupByLibrary.simpleMessage(
             "End time is between start time"),
+        "fifteen_minutes_early":
+            MessageLookupByLibrary.simpleMessage("15 minutes early"),
+        "five_minutes_early":
+            MessageLookupByLibrary.simpleMessage("5 minutes early"),
         "invalid_value": MessageLookupByLibrary.simpleMessage("Invalid value"),
         "note": MessageLookupByLibrary.simpleMessage("Note"),
         "note_hint": MessageLookupByLibrary.simpleMessage("Enter note here"),
+        "remind": MessageLookupByLibrary.simpleMessage("Remind"),
+        "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
         "start_time": MessageLookupByLibrary.simpleMessage("Start time"),
         "start_time_is_after_end_time": MessageLookupByLibrary.simpleMessage(
             "Start time is after end time"),
+        "ten_minutes_early":
+            MessageLookupByLibrary.simpleMessage("10 minutes early"),
         "title": MessageLookupByLibrary.simpleMessage("Title"),
         "title_hint": MessageLookupByLibrary.simpleMessage("Enter title here"),
-        "today": MessageLookupByLibrary.simpleMessage("Today")
+        "today": MessageLookupByLibrary.simpleMessage("Today"),
+        "twenty_minutes_early":
+            MessageLookupByLibrary.simpleMessage("20 minutes early")
       };
 }

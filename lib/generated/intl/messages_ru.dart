@@ -33,15 +33,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "end_time": MessageLookupByLibrary.simpleMessage("Конец"),
         "end_time_is_between_start_time": MessageLookupByLibrary.simpleMessage(
             "Дата конца раньше даты начала"),
+        "fifteen_minutes_early":
+            MessageLookupByLibrary.simpleMessage("На 15 минут раньше"),
+        "five_minutes_early":
+            MessageLookupByLibrary.simpleMessage("На 5 минут раньше"),
         "invalid_value":
             MessageLookupByLibrary.simpleMessage("Некорректное значение"),
         "note": MessageLookupByLibrary.simpleMessage("Запись"),
         "note_hint": MessageLookupByLibrary.simpleMessage("Введите запись"),
+        "remind": MessageLookupByLibrary.simpleMessage("Напоминание"),
+        "repeat": MessageLookupByLibrary.simpleMessage("Повторение"),
         "start_time": MessageLookupByLibrary.simpleMessage("Начало"),
         "start_time_is_after_end_time": MessageLookupByLibrary.simpleMessage(
             "Дата начала после даты окончания"),
+        "ten_minutes_early":
+            MessageLookupByLibrary.simpleMessage("На 10 минут раньше"),
         "title": MessageLookupByLibrary.simpleMessage("Заголовок"),
         "title_hint": MessageLookupByLibrary.simpleMessage("Введите заголовок"),
-        "today": MessageLookupByLibrary.simpleMessage("Сегодня")
+        "today": MessageLookupByLibrary.simpleMessage("Сегодня"),
+        "twenty_minutes_early":
+            MessageLookupByLibrary.simpleMessage("На 20 минут раньше")
       };
 }

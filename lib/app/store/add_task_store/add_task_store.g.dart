@@ -87,6 +87,22 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
     });
   }
 
+  late final _$remindAtom =
+      Atom(name: 'AddTaskStoreBase.remind', context: context);
+
+  @override
+  Remind get remind {
+    _$remindAtom.reportRead();
+    return super.remind;
+  }
+
+  @override
+  set remind(Remind value) {
+    _$remindAtom.reportWrite(value, super.remind, () {
+      super.remind = value;
+    });
+  }
+
   late final _$changeDateAsyncAction =
       AsyncAction('AddTaskStoreBase.changeDate', context: context);
 
@@ -115,6 +131,17 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
       ActionController(name: 'AddTaskStoreBase', context: context);
 
   @override
+  void changeRemind(Remind remind) {
+    final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
+        name: 'AddTaskStoreBase.changeRemind');
+    try {
+      return super.changeRemind(remind);
+    } finally {
+      _$AddTaskStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void addTask() {
     final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
         name: 'AddTaskStoreBase.addTask');
@@ -132,7 +159,8 @@ title: ${title},
 note: ${note},
 date: ${date},
 startTime: ${startTime},
-endTime: ${endTime}
+endTime: ${endTime},
+remind: ${remind}
     ''';
   }
 }
