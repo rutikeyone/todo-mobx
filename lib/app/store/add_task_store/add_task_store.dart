@@ -4,7 +4,9 @@ import 'package:to_do/app/store/add_task_store/add_task_form_state.dart';
 import 'package:to_do/core/domain/entity/end_date_error.dart';
 import 'package:to_do/core/domain/entity/form_error.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
+import 'package:to_do/core/domain/entity/repeat.dart';
 import 'package:to_do/core/domain/entity/start_date_error.dart';
+import 'package:to_do/core/domain/entity/task_color.dart';
 import 'package:to_do/core/extension/time_of_day_ext.dart';
 
 part 'add_task_store.g.dart';
@@ -34,6 +36,12 @@ abstract class AddTaskStoreBase with Store {
 
   @observable
   Remind remind = const Remind.fiveMinutesEarly();
+
+  @observable
+  Repeat repeat = const Repeat.none();
+
+  @observable
+  TaskColor color = TaskColor.blue;
 
   AddTaskStoreBase() {
     _addTaskFormState = AddTaskFormState();
@@ -78,6 +86,16 @@ abstract class AddTaskStoreBase with Store {
   @action
   void changeRemind(Remind remind) {
     this.remind = remind;
+  }
+
+  @action
+  void changeRepeat(Repeat repeat) {
+    this.repeat = repeat;
+  }
+
+  @action
+  void changeColor(TaskColor color) {
+    this.color = color;
   }
 
   @action

@@ -19,5 +19,9 @@
     "five_minutes_early" : "5 minutes early",
     "ten_minutes_early" : "10 minutes early",
     "fifteen_minutes_early" : "15 minutes early",
-    "twenty_minutes_early" : "20 minutes early"
+    "twenty_minutes_early" : "20 minutes early",
+    "none" : "None",
+    "daily" : "Daily",
+    "weekly" : "Weekly",
+    "monthly" : "Monthly"
 }

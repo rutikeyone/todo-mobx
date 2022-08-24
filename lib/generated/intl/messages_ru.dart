@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на темную"),
         "changed_light_theme_message":
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на светлую"),
+        "daily": MessageLookupByLibrary.simpleMessage("Ежедневно"),
         "date": MessageLookupByLibrary.simpleMessage("Дата"),
         "empty_text_field":
             MessageLookupByLibrary.simpleMessage("Пустое текстовое поле"),
@@ -39,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("На 5 минут раньше"),
         "invalid_value":
             MessageLookupByLibrary.simpleMessage("Некорректное значение"),
+        "monthly": MessageLookupByLibrary.simpleMessage("Ежемесячно"),
+        "none": MessageLookupByLibrary.simpleMessage("Нет"),
         "note": MessageLookupByLibrary.simpleMessage("Запись"),
         "note_hint": MessageLookupByLibrary.simpleMessage("Введите запись"),
         "remind": MessageLookupByLibrary.simpleMessage("Напоминание"),
@@ -52,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "title_hint": MessageLookupByLibrary.simpleMessage("Введите заголовок"),
         "today": MessageLookupByLibrary.simpleMessage("Сегодня"),
         "twenty_minutes_early":
-            MessageLookupByLibrary.simpleMessage("На 20 минут раньше")
+            MessageLookupByLibrary.simpleMessage("На 20 минут раньше"),
+        "weekly": MessageLookupByLibrary.simpleMessage("Еженедельно")
       };
 }

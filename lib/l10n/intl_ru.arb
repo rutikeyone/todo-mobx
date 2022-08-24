@@ -19,5 +19,9 @@
     "five_minutes_early" : "На 5 минут раньше",
     "ten_minutes_early" : "На 10 минут раньше",
     "fifteen_minutes_early" : "На 15 минут раньше",
-    "twenty_minutes_early" : "На 20 минут раньше"
+    "twenty_minutes_early" : "На 20 минут раньше",
+    "none" : "Нет",
+    "daily" : "Ежедневно",
+    "weekly" : "Еженедельно",
+    "monthly" : "Ежемесячно"
 }

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You have changed the themes to dark"),
         "changed_light_theme_message": MessageLookupByLibrary.simpleMessage(
             "You have changed the themes to light"),
+        "daily": MessageLookupByLibrary.simpleMessage("Daily"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "empty_text_field":
             MessageLookupByLibrary.simpleMessage("Empty text field"),
@@ -38,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "five_minutes_early":
             MessageLookupByLibrary.simpleMessage("5 minutes early"),
         "invalid_value": MessageLookupByLibrary.simpleMessage("Invalid value"),
+        "monthly": MessageLookupByLibrary.simpleMessage("Monthly"),
+        "none": MessageLookupByLibrary.simpleMessage("None"),
         "note": MessageLookupByLibrary.simpleMessage("Note"),
         "note_hint": MessageLookupByLibrary.simpleMessage("Enter note here"),
         "remind": MessageLookupByLibrary.simpleMessage("Remind"),
@@ -51,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "title_hint": MessageLookupByLibrary.simpleMessage("Enter title here"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "twenty_minutes_early":
-            MessageLookupByLibrary.simpleMessage("20 minutes early")
+            MessageLookupByLibrary.simpleMessage("20 minutes early"),
+        "weekly": MessageLookupByLibrary.simpleMessage("Weekly")
       };
 }

@@ -103,6 +103,38 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
     });
   }
 
+  late final _$repeatAtom =
+      Atom(name: 'AddTaskStoreBase.repeat', context: context);
+
+  @override
+  Repeat get repeat {
+    _$repeatAtom.reportRead();
+    return super.repeat;
+  }
+
+  @override
+  set repeat(Repeat value) {
+    _$repeatAtom.reportWrite(value, super.repeat, () {
+      super.repeat = value;
+    });
+  }
+
+  late final _$colorAtom =
+      Atom(name: 'AddTaskStoreBase.color', context: context);
+
+  @override
+  TaskColor get color {
+    _$colorAtom.reportRead();
+    return super.color;
+  }
+
+  @override
+  set color(TaskColor value) {
+    _$colorAtom.reportWrite(value, super.color, () {
+      super.color = value;
+    });
+  }
+
   late final _$changeDateAsyncAction =
       AsyncAction('AddTaskStoreBase.changeDate', context: context);
 
@@ -142,6 +174,28 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
   }
 
   @override
+  void changeRepeat(Repeat repeat) {
+    final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
+        name: 'AddTaskStoreBase.changeRepeat');
+    try {
+      return super.changeRepeat(repeat);
+    } finally {
+      _$AddTaskStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void changeColor(TaskColor color) {
+    final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
+        name: 'AddTaskStoreBase.changeColor');
+    try {
+      return super.changeColor(color);
+    } finally {
+      _$AddTaskStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void addTask() {
     final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
         name: 'AddTaskStoreBase.addTask');
@@ -160,7 +214,9 @@ note: ${note},
 date: ${date},
 startTime: ${startTime},
 endTime: ${endTime},
-remind: ${remind}
+remind: ${remind},
+repeat: ${repeat},
+color: ${color}
     ''';
   }
 }

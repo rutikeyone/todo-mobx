@@ -5,13 +5,16 @@ import 'package:to_do/app/store/add_task_store/add_task_store.dart';
 import 'package:to_do/app/theme/custom_color.dart';
 import 'package:to_do/app/theme/custom_text_theme.dart';
 import 'package:to_do/app/ui/add_task/widgets/add_task_app_bar.dart';
+import 'package:to_do/app/ui/add_task/widgets/color_tile.dart';
 import 'package:to_do/app/ui/add_task/widgets/info_picker.dart';
 import 'package:to_do/app/ui/add_task/widgets/text_input_field_type_one.dart';
+import 'package:to_do/app/ui/dialog/custom_dialog_type_one.dart';
 import 'package:to_do/app/ui/widgets/todo_button_type_one.dart';
-import 'package:to_do/core/domain/entity/end_date_error.dart';
-import 'package:to_do/core/domain/entity/form_error.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
-import 'package:to_do/core/domain/entity/start_date_error.dart';
+import 'package:to_do/core/domain/entity/repeat.dart';
+import 'package:to_do/core/extension/list_ext.dart';
+import 'package:to_do/core/utils/add_task_utils.dart';
+
 import 'package:to_do/generated/l10n.dart';
 
 class AddTaskPage extends StatefulWidget {
@@ -26,42 +29,7 @@ class AddTaskPage extends StatefulWidget {
   State<AddTaskPage> createState() => _AddTaskPageState();
 }
 
-class _AddTaskPageState extends State<AddTaskPage> {
-  String? _validateTextField(FormError? error, BuildContext context) {
-    if (error != null) {
-      return error.when(
-        nullOrEmpty: () => S.of(context).empty_text_field,
-        invalid: () => S.of(context).invalid_value,
-      );
-    }
-    return null;
-  }
-
-  String? _validateStartDate(StartDateError? error, BuildContext context) {
-    if (error != null) {
-      return error.when(
-          isAfter: () => S.of(context).start_time_is_after_end_time);
-    }
-    return null;
-  }
-
-  String? _validateEndDate(EndDateError? error, BuildContext context) {
-    if (error != null) {
-      return error.when(
-          isBetween: () => S.of(context).end_time_is_between_start_time);
-    }
-    return null;
-  }
-
-  String _parseRemind(Remind remind, BuildContext buildContext) {
-    return remind.when(
-      fiveMinutesEarly: () => S.of(context).five_minutes_early,
-      tenMinutesEarly: () => S.of(context).ten_minutes_early,
-      fifteenMinutesEarly: () => S.of(context).fifteen_minutes_early,
-      twentyMinutesEarly: () => S.of(context).twenty_minutes_early,
-    );
-  }
-
+class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
   @override
   void dispose() {
     widget.store.dispose();
@@ -100,7 +68,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                             title: S.of(context).title,
                             hint: S.of(context).title_hint,
                             onChanged: (value) => widget.store.title = value,
-                            error: _validateTextField(
+                            error: validateTextField(
                                 widget.store.addTaskFormState.titleError,
                                 context),
                           ),
@@ -111,7 +79,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                             topPadding: 8,
                             hint: S.of(context).note_hint,
                             onChanged: (value) => widget.store.note = value,
-                            error: _validateTextField(
+                            error: validateTextField(
                                 widget.store.addTaskFormState.noteError,
                                 context),
                           ),
@@ -155,7 +123,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                           .extension<CustomColor>()!
                                           .iconColor1,
                                     ),
-                                    error: _validateStartDate(
+                                    error: validateStartDate(
                                         widget.store.addTaskFormState
                                             .startDateError,
                                         context),
@@ -178,7 +146,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                           .extension<CustomColor>()!
                                           .iconColor1,
                                     ),
-                                    error: _validateEndDate(
+                                    error: validateEndDate(
                                         widget.store.addTaskFormState
                                             .endDateError,
                                         context),
@@ -204,8 +172,18 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                   .extension<CustomColor>()!
                                   .iconColor1,
                             ),
-                            value: _parseRemind(widget.store.remind, context),
-                            onTap: () {},
+                            value: parseRemind(widget.store.remind, context),
+                            onTap: () => showDialog(
+                              context: context,
+                              builder: (context) => CustomDialogTypeOne<Remind>(
+                                title: S.of(context).remind,
+                                items: remindItems.toMap((e) =>
+                                    MapEntry(parseRemind(e, context), e)),
+                                selectedItem: widget.store.remind,
+                                onSelect: (value) =>
+                                    widget.store.changeRemind(value),
+                              ),
+                            ),
                           ),
                         ),
                         Observer(
@@ -218,20 +196,48 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                   .extension<CustomColor>()!
                                   .iconColor1,
                             ),
-                            value: "None",
-                            onTap: () {},
+                            value: parseRepeat(widget.store.repeat, context),
+                            onTap: () => showDialog(
+                              context: context,
+                              builder: (context) => CustomDialogTypeOne<Repeat>(
+                                title: S.of(context).repeat,
+                                items: repeatItems.toMap((e) =>
+                                    MapEntry(parseRepeat(e, context), e)),
+                                selectedItem: widget.store.repeat,
+                                onSelect: (value) =>
+                                    widget.store.changeRepeat(value),
+                              ),
+                            ),
                           ),
                         ),
-                        Observer(
-                          builder: (_) {
-                            return Padding(
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Observer(
+                              builder: (_) {
+                                return Row(
+                                  children: colors
+                                      .map(
+                                        (e) => ColorTile(
+                                          edgeInsets:
+                                              const EdgeInsets.only(right: 10),
+                                          isSelected: widget.store.color == e,
+                                          taskColor: e,
+                                          onTap: widget.store.changeColor,
+                                        ),
+                                      )
+                                      .toList(),
+                                );
+                              },
+                            ),
+                            Padding(
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               child: ToDoButtonTypeOne(
                                 label: S.of(context).add_task,
                                 onPressed: widget.store.addTask,
                               ),
-                            );
-                          },
+                            ),
+                          ],
                         ),
                       ],
                     ),
