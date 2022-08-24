@@ -13,7 +13,7 @@ class AddTaskAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       leading: IconButton(
         icon: Icon(
           Icons.arrow_back_ios,

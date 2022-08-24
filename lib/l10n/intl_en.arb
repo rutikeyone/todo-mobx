@@ -23,5 +23,6 @@
     "none" : "None",
     "daily" : "Daily",
     "weekly" : "Weekly",
-    "monthly" : "Monthly"
+    "monthly" : "Monthly",
+    "color" : "Color"
 }

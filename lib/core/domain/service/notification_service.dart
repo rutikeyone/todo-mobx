@@ -1,5 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:to_do/core/data/model/notice.dart';
+import 'package:to_do/core/domain/entity/notice.dart';
 
 abstract class NotificationService {
   Future init({bool iniScheluted = false});

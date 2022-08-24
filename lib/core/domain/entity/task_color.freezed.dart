@@ -14,10 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+TaskColor _$TaskColorFromJson(Map<String, dynamic> json) {
+  return $TaskDefaultColor.fromJson(json);
+}
+
 /// @nodoc
 mixin _$TaskColor {
+  @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
   Color get color => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TaskColorCopyWith<TaskColor> get copyWith =>
       throw _privateConstructorUsedError;
@@ -27,7 +33,7 @@ mixin _$TaskColor {
 abstract class $TaskColorCopyWith<$Res> {
   factory $TaskColorCopyWith(TaskColor value, $Res Function(TaskColor) then) =
       _$TaskColorCopyWithImpl<$Res>;
-  $Res call({Color color});
+  $Res call({@JsonKey(toJson: colorToJson, fromJson: jsonToColor) Color color});
 }
 
 /// @nodoc
@@ -58,7 +64,7 @@ abstract class _$$$TaskDefaultColorCopyWith<$Res>
           _$$TaskDefaultColor value, $Res Function(_$$TaskDefaultColor) then) =
       __$$$TaskDefaultColorCopyWithImpl<$Res>;
   @override
-  $Res call({Color color});
+  $Res call({@JsonKey(toJson: colorToJson, fromJson: jsonToColor) Color color});
 }
 
 /// @nodoc
@@ -86,11 +92,16 @@ class __$$$TaskDefaultColorCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$$TaskDefaultColor implements $TaskDefaultColor {
-  const _$$TaskDefaultColor(this.color);
+  const _$$TaskDefaultColor(
+      @JsonKey(toJson: colorToJson, fromJson: jsonToColor) this.color);
+
+  factory _$$TaskDefaultColor.fromJson(Map<String, dynamic> json) =>
+      _$$$TaskDefaultColorFromJson(json);
 
   @override
+  @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
   final Color color;
 
   @override
@@ -106,6 +117,7 @@ class _$$TaskDefaultColor implements $TaskDefaultColor {
             const DeepCollectionEquality().equals(other.color, color));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
@@ -114,12 +126,25 @@ class _$$TaskDefaultColor implements $TaskDefaultColor {
   @override
   _$$$TaskDefaultColorCopyWith<_$$TaskDefaultColor> get copyWith =>
       __$$$TaskDefaultColorCopyWithImpl<_$$TaskDefaultColor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$$TaskDefaultColorToJson(
+      this,
+    );
+  }
 }
 
 abstract class $TaskDefaultColor implements TaskColor {
-  const factory $TaskDefaultColor(final Color color) = _$$TaskDefaultColor;
+  const factory $TaskDefaultColor(
+      @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
+          final Color color) = _$$TaskDefaultColor;
+
+  factory $TaskDefaultColor.fromJson(Map<String, dynamic> json) =
+      _$$TaskDefaultColor.fromJson;
 
   @override
+  @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
   Color get color;
   @override
   @JsonKey(ignore: true)

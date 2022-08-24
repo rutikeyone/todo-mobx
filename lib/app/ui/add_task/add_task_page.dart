@@ -10,9 +10,9 @@ import 'package:to_do/app/ui/add_task/widgets/info_picker.dart';
 import 'package:to_do/app/ui/add_task/widgets/text_input_field_type_one.dart';
 import 'package:to_do/app/ui/dialog/custom_dialog_type_one.dart';
 import 'package:to_do/app/ui/widgets/todo_button_type_one.dart';
+import 'package:to_do/core/domain/entity/extension/list_ext.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
 import 'package:to_do/core/domain/entity/repeat.dart';
-import 'package:to_do/core/extension/list_ext.dart';
 import 'package:to_do/core/utils/add_task_utils.dart';
 
 import 'package:to_do/generated/l10n.dart';
@@ -42,7 +42,6 @@ class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
@@ -210,34 +209,53 @@ class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
                             ),
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Observer(
-                              builder: (_) {
-                                return Row(
-                                  children: colors
-                                      .map(
-                                        (e) => ColorTile(
-                                          edgeInsets:
-                                              const EdgeInsets.only(right: 10),
-                                          isSelected: widget.store.color == e,
-                                          taskColor: e,
-                                          onTap: widget.store.changeColor,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Observer(
+                                builder: (_) {
+                                  return Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        S.of(context).color,
+                                        style: Theme.of(context)
+                                            .extension<CustomTextTheme>()!
+                                            .heading3,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 8),
+                                        child: Row(
+                                          children: colors
+                                              .map(
+                                                (e) => ColorTile(
+                                                  edgeInsets:
+                                                      const EdgeInsets.only(
+                                                          right: 10),
+                                                  isSelected:
+                                                      widget.store.color == e,
+                                                  taskColor: e,
+                                                  onTap:
+                                                      widget.store.changeColor,
+                                                ),
+                                              )
+                                              .toList(),
                                         ),
-                                      )
-                                      .toList(),
-                                );
-                              },
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                              child: ToDoButtonTypeOne(
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                              ToDoButtonTypeOne(
                                 label: S.of(context).add_task,
                                 onPressed: widget.store.addTask,
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),

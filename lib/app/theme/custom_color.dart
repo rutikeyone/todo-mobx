@@ -31,7 +31,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     textFieldBorder1: Colors.grey,
     dialogSelectedItem1: Colors.grey[200]!,
     iconColor1: Colors.black,
-    darkHeader1: const Color(0xFF424242),
+    darkHeader1: Colors.black,
   );
 
   static final darkColor = CustomColor(

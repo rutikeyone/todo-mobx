@@ -47,7 +47,6 @@ class _TodosPageState extends State<TodosPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(

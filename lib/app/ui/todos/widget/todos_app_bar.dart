@@ -15,7 +15,7 @@ class TodosAppBar extends StatelessWidget {
 
     return AppBar(
       elevation: 0,
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       leading: IconButton(
         icon: Icon(
           store.theme.isDarkMode ? Icons.nightlight_round : Icons.sunny,

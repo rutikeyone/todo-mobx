@@ -1,6 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:to_do/core/data/model/notice.dart';
+import 'package:to_do/core/domain/entity/notice.dart';
 import 'package:to_do/core/domain/service/notification_service.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на темную"),
         "changed_light_theme_message":
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на светлую"),
+        "color": MessageLookupByLibrary.simpleMessage("Цвет"),
         "daily": MessageLookupByLibrary.simpleMessage("Ежедневно"),
         "date": MessageLookupByLibrary.simpleMessage("Дата"),
         "empty_text_field":
