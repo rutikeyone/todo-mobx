@@ -35,7 +35,7 @@ class ColorTile extends StatelessWidget {
                   child: Icon(
                     Icons.check,
                     color:
-                        Theme.of(context).extension<CustomColor>()!.iconColor1,
+                        Theme.of(context).extension<CustomColor>()!.iconColor2,
                   ),
                 )
               : null,

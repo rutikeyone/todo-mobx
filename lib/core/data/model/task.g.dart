@@ -11,9 +11,12 @@ _$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
       title: json['title'] as String,
       note: json['note'] as String,
       isCompleted: json['isCompleted'] as bool,
-      date: jsonToDate(json['date']),
-      startTime: jsonToTimeOfDay(json['startTime']),
-      endTime: jsonToTimeOfDay(json['endTime']),
+      date: CustomSerializer.jsonToDate(json['date']),
+      startTime: CustomSerializer.jsonToTimeOfDay(json['startTime']),
+      endTime: CustomSerializer.jsonToTimeOfDay(json['endTime']),
+      taskColor: CustomSerializer.jsonToTaskColor(json['taskColor']),
+      remind: CustomSerializer.jsonToRemind(json['remind']),
+      repeat: CustomSerializer.jsonToRepeat(json['repeat']),
     );
 
 Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
@@ -21,7 +24,10 @@ Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
       'title': instance.title,
       'note': instance.note,
       'isCompleted': instance.isCompleted,
-      'date': dateToJson(instance.date),
-      'startTime': timeOfDayToJson(instance.startTime),
-      'endTime': timeOfDayToJson(instance.endTime),
+      'date': CustomSerializer.dateToJson(instance.date),
+      'startTime': CustomSerializer.timeOfDayToJson(instance.startTime),
+      'endTime': CustomSerializer.timeOfDayToJson(instance.endTime),
+      'taskColor': CustomSerializer.taskColorToJson(instance.taskColor),
+      'remind': CustomSerializer.remindToJson(instance.remind),
+      'repeat': CustomSerializer.repeatToJson(instance.repeat),
     };

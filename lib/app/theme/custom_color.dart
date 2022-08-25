@@ -11,6 +11,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
   final Color darkHeader1;
 
   final Color iconColor1;
+  final Color iconColor2;
 
   const CustomColor({
     required this.primary,
@@ -20,6 +21,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     required this.textFieldBorder1,
     required this.dialogSelectedItem1,
     required this.iconColor1,
+    required this.iconColor2,
     required this.darkHeader1,
   });
 
@@ -31,6 +33,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     textFieldBorder1: Colors.grey,
     dialogSelectedItem1: Colors.grey[200]!,
     iconColor1: Colors.black,
+    iconColor2: Colors.white,
     darkHeader1: Colors.black,
   );
 
@@ -42,6 +45,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     textFieldBorder1: Colors.white,
     dialogSelectedItem1: Colors.grey[700]!,
     iconColor1: Colors.white,
+    iconColor2: Colors.white,
     darkHeader1: const Color(0xFF424242),
   );
 
@@ -61,6 +65,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
       dialogSelectedItem1:
           Color.lerp(dialogSelectedItem1, other.dialogSelectedItem1, t)!,
       iconColor1: Color.lerp(iconColor1, other.iconColor1, t)!,
+      iconColor2: Color.lerp(iconColor2, other.iconColor2, t)!,
       darkHeader1: Color.lerp(darkHeader1, other.darkHeader1, t)!,
     );
   }
@@ -75,6 +80,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     Color? textFieldBorder1,
     Color? dialogSelectedItem1,
     Color? iconColor1,
+    Color? iconColor2,
     Color? darkHeader1,
   }) {
     return CustomColor(
@@ -85,6 +91,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
       textFieldBorder1: textFieldBorder1 ?? this.textFieldBorder1,
       dialogSelectedItem1: dialogSelectedItem1 ?? this.dialogSelectedItem1,
       iconColor1: iconColor1 ?? this.iconColor1,
+      iconColor2: iconColor2 ?? this.iconColor2,
       darkHeader1: darkHeader1 ?? this.darkHeader1,
     );
   }

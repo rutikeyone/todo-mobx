@@ -29,7 +29,10 @@ class TaskDatabaseImpl extends TaskDatabase {
         isCompleted BOOLEAN NOT NULL,
         date TEXT NOT NULL,
         startTime TEXT NOT NULL,
-        endTime TEXT NOT NULL
+        endTime TEXT NOT NULL,
+        taskColor TEXT NOT NULL,
+        remind TEXT NOT NULL,
+        repeat TEXT NOT NULL
       )
       ''');
   }

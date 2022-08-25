@@ -8,10 +8,10 @@ part of 'task_color.dart';
 
 _$$TaskDefaultColor _$$$TaskDefaultColorFromJson(Map<String, dynamic> json) =>
     _$$TaskDefaultColor(
-      jsonToColor(json['color']),
+      CustomSerializer.jsonToColor(json['color']),
     );
 
 Map<String, dynamic> _$$$TaskDefaultColorToJson(_$$TaskDefaultColor instance) =>
     <String, dynamic>{
-      'color': colorToJson(instance.color),
+      'color': CustomSerializer.colorToJson(instance.color),
     };

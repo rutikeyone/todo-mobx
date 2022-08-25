@@ -20,7 +20,9 @@ TaskColor _$TaskColorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TaskColor {
-  @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
+  @JsonKey(
+      toJson: CustomSerializer.colorToJson,
+      fromJson: CustomSerializer.jsonToColor)
   Color get color => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +35,9 @@ mixin _$TaskColor {
 abstract class $TaskColorCopyWith<$Res> {
   factory $TaskColorCopyWith(TaskColor value, $Res Function(TaskColor) then) =
       _$TaskColorCopyWithImpl<$Res>;
-  $Res call({@JsonKey(toJson: colorToJson, fromJson: jsonToColor) Color color});
+  $Res call(
+      {@JsonKey(toJson: CustomSerializer.colorToJson, fromJson: CustomSerializer.jsonToColor)
+          Color color});
 }
 
 /// @nodoc
@@ -64,7 +68,9 @@ abstract class _$$$TaskDefaultColorCopyWith<$Res>
           _$$TaskDefaultColor value, $Res Function(_$$TaskDefaultColor) then) =
       __$$$TaskDefaultColorCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(toJson: colorToJson, fromJson: jsonToColor) Color color});
+  $Res call(
+      {@JsonKey(toJson: CustomSerializer.colorToJson, fromJson: CustomSerializer.jsonToColor)
+          Color color});
 }
 
 /// @nodoc
@@ -95,13 +101,16 @@ class __$$$TaskDefaultColorCopyWithImpl<$Res>
 @JsonSerializable()
 class _$$TaskDefaultColor implements $TaskDefaultColor {
   const _$$TaskDefaultColor(
-      @JsonKey(toJson: colorToJson, fromJson: jsonToColor) this.color);
+      @JsonKey(toJson: CustomSerializer.colorToJson, fromJson: CustomSerializer.jsonToColor)
+          this.color);
 
   factory _$$TaskDefaultColor.fromJson(Map<String, dynamic> json) =>
       _$$$TaskDefaultColorFromJson(json);
 
   @override
-  @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
+  @JsonKey(
+      toJson: CustomSerializer.colorToJson,
+      fromJson: CustomSerializer.jsonToColor)
   final Color color;
 
   @override
@@ -137,14 +146,16 @@ class _$$TaskDefaultColor implements $TaskDefaultColor {
 
 abstract class $TaskDefaultColor implements TaskColor {
   const factory $TaskDefaultColor(
-      @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
+      @JsonKey(toJson: CustomSerializer.colorToJson, fromJson: CustomSerializer.jsonToColor)
           final Color color) = _$$TaskDefaultColor;
 
   factory $TaskDefaultColor.fromJson(Map<String, dynamic> json) =
       _$$TaskDefaultColor.fromJson;
 
   @override
-  @JsonKey(toJson: colorToJson, fromJson: jsonToColor)
+  @JsonKey(
+      toJson: CustomSerializer.colorToJson,
+      fromJson: CustomSerializer.jsonToColor)
   Color get color;
   @override
   @JsonKey(ignore: true)

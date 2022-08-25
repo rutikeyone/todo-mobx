@@ -9,7 +9,7 @@ class DbServiceImpl extends DbService {
   @override
   Future<DbResult> add(Task task) async {
     try {
-      db.add(task);
+      await db.add(task);
       return const DbResult.success();
     } catch (e) {
       return const DbResult.failure();
@@ -18,13 +18,13 @@ class DbServiceImpl extends DbService {
 
   @override
   Future<List<Task>> getTasks() async {
-    return db.getTasks();
+    return await db.getTasks();
   }
 
   @override
   Future<DbResult> remove(int id) async {
     try {
-      db.remove(id);
+      await db.remove(id);
       return const DbResult.success();
     } catch (e) {
       return const DbResult.failure();
@@ -34,7 +34,7 @@ class DbServiceImpl extends DbService {
   @override
   Future<DbResult> update(Task task) async {
     try {
-      db.update(task);
+      await db.update(task);
       return const DbResult.success();
     } catch (e) {
       return const DbResult.failure();

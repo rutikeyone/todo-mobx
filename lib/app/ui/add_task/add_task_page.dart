@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:intl/intl.dart';
@@ -32,18 +34,18 @@ class AddTaskPage extends StatefulWidget {
 }
 
 class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
-  late final ReactionDisposer _addReaction;
+  late final StreamSubscription<DbResult> _dbResultSubscription;
 
   @override
   void initState() {
-    _addReaction = reaction<DbResult?>((_) => widget.store.dbResultStream.value,
-        (value) => showDbResultReaction(context, value));
+    _dbResultSubscription = widget.store.dbResultStream
+        .listen((value) => showDbResultReaction(context, value));
     super.initState();
   }
 
   @override
   void dispose() {
-    _addReaction();
+    _dbResultSubscription.cancel();
     widget.store.dispose();
     super.dispose();
   }

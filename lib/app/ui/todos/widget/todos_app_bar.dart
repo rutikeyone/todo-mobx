@@ -28,7 +28,7 @@ class TodosAppBar extends StatelessWidget {
         IconButton(
           onPressed: () {},
           icon: Icon(
-            Icons.person,
+            Icons.account_circle,
             color: iconColor,
           ),
         ),

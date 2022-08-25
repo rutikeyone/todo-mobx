@@ -24,12 +24,30 @@ mixin _$Task {
   String get title => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
-  @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
+  @JsonKey(
+      toJson: CustomSerializer.dateToJson,
+      fromJson: CustomSerializer.jsonToDate)
   DateTime get date => throw _privateConstructorUsedError;
-  @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+  @JsonKey(
+      toJson: CustomSerializer.timeOfDayToJson,
+      fromJson: CustomSerializer.jsonToTimeOfDay)
   TimeOfDay get startTime => throw _privateConstructorUsedError;
-  @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+  @JsonKey(
+      toJson: CustomSerializer.timeOfDayToJson,
+      fromJson: CustomSerializer.jsonToTimeOfDay)
   TimeOfDay get endTime => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: CustomSerializer.taskColorToJson,
+      fromJson: CustomSerializer.jsonToTaskColor)
+  TaskColor get taskColor => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: CustomSerializer.remindToJson,
+      fromJson: CustomSerializer.jsonToRemind)
+  Remind get remind => throw _privateConstructorUsedError;
+  @JsonKey(
+      toJson: CustomSerializer.repeatToJson,
+      fromJson: CustomSerializer.jsonToRepeat)
+  Repeat get repeat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,12 +63,22 @@ abstract class $TaskCopyWith<$Res> {
       String title,
       String note,
       bool isCompleted,
-      @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
+      @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           DateTime date,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
           TimeOfDay startTime,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay endTime});
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
+          TimeOfDay endTime,
+      @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
+          TaskColor taskColor,
+      @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
+          Remind remind,
+      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
+          Repeat repeat});
+
+  $TaskColorCopyWith<$Res> get taskColor;
+  $RemindCopyWith<$Res> get remind;
+  $RepeatCopyWith<$Res> get repeat;
 }
 
 /// @nodoc
@@ -70,6 +98,9 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
     Object? date = freezed,
     Object? startTime = freezed,
     Object? endTime = freezed,
+    Object? taskColor = freezed,
+    Object? remind = freezed,
+    Object? repeat = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -100,7 +131,40 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      taskColor: taskColor == freezed
+          ? _value.taskColor
+          : taskColor // ignore: cast_nullable_to_non_nullable
+              as TaskColor,
+      remind: remind == freezed
+          ? _value.remind
+          : remind // ignore: cast_nullable_to_non_nullable
+              as Remind,
+      repeat: repeat == freezed
+          ? _value.repeat
+          : repeat // ignore: cast_nullable_to_non_nullable
+              as Repeat,
     ));
+  }
+
+  @override
+  $TaskColorCopyWith<$Res> get taskColor {
+    return $TaskColorCopyWith<$Res>(_value.taskColor, (value) {
+      return _then(_value.copyWith(taskColor: value));
+    });
+  }
+
+  @override
+  $RemindCopyWith<$Res> get remind {
+    return $RemindCopyWith<$Res>(_value.remind, (value) {
+      return _then(_value.copyWith(remind: value));
+    });
+  }
+
+  @override
+  $RepeatCopyWith<$Res> get repeat {
+    return $RepeatCopyWith<$Res>(_value.repeat, (value) {
+      return _then(_value.copyWith(repeat: value));
+    });
   }
 }
 
@@ -114,12 +178,25 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       String title,
       String note,
       bool isCompleted,
-      @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
+      @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           DateTime date,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
           TimeOfDay startTime,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay endTime});
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
+          TimeOfDay endTime,
+      @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
+          TaskColor taskColor,
+      @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
+          Remind remind,
+      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
+          Repeat repeat});
+
+  @override
+  $TaskColorCopyWith<$Res> get taskColor;
+  @override
+  $RemindCopyWith<$Res> get remind;
+  @override
+  $RepeatCopyWith<$Res> get repeat;
 }
 
 /// @nodoc
@@ -140,6 +217,9 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
     Object? date = freezed,
     Object? startTime = freezed,
     Object? endTime = freezed,
+    Object? taskColor = freezed,
+    Object? remind = freezed,
+    Object? repeat = freezed,
   }) {
     return _then(_$_Task(
       id: id == freezed
@@ -170,6 +250,18 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
+      taskColor: taskColor == freezed
+          ? _value.taskColor
+          : taskColor // ignore: cast_nullable_to_non_nullable
+              as TaskColor,
+      remind: remind == freezed
+          ? _value.remind
+          : remind // ignore: cast_nullable_to_non_nullable
+              as Remind,
+      repeat: repeat == freezed
+          ? _value.repeat
+          : repeat // ignore: cast_nullable_to_non_nullable
+              as Repeat,
     ));
   }
 }
@@ -182,12 +274,18 @@ class _$_Task implements _Task {
       required this.title,
       required this.note,
       required this.isCompleted,
-      @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
+      @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           required this.date,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
           required this.startTime,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required this.endTime});
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
+          required this.endTime,
+      @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
+          required this.taskColor,
+      @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
+          required this.remind,
+      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
+          required this.repeat});
 
   factory _$_Task.fromJson(Map<String, dynamic> json) => _$$_TaskFromJson(json);
 
@@ -200,18 +298,39 @@ class _$_Task implements _Task {
   @override
   final bool isCompleted;
   @override
-  @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
+  @JsonKey(
+      toJson: CustomSerializer.dateToJson,
+      fromJson: CustomSerializer.jsonToDate)
   final DateTime date;
   @override
-  @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+  @JsonKey(
+      toJson: CustomSerializer.timeOfDayToJson,
+      fromJson: CustomSerializer.jsonToTimeOfDay)
   final TimeOfDay startTime;
   @override
-  @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+  @JsonKey(
+      toJson: CustomSerializer.timeOfDayToJson,
+      fromJson: CustomSerializer.jsonToTimeOfDay)
   final TimeOfDay endTime;
+  @override
+  @JsonKey(
+      toJson: CustomSerializer.taskColorToJson,
+      fromJson: CustomSerializer.jsonToTaskColor)
+  final TaskColor taskColor;
+  @override
+  @JsonKey(
+      toJson: CustomSerializer.remindToJson,
+      fromJson: CustomSerializer.jsonToRemind)
+  final Remind remind;
+  @override
+  @JsonKey(
+      toJson: CustomSerializer.repeatToJson,
+      fromJson: CustomSerializer.jsonToRepeat)
+  final Repeat repeat;
 
   @override
   String toString() {
-    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startTime: $startTime, endTime: $endTime)';
+    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startTime: $startTime, endTime: $endTime, taskColor: $taskColor, remind: $remind, repeat: $repeat)';
   }
 
   @override
@@ -226,7 +345,10 @@ class _$_Task implements _Task {
                 .equals(other.isCompleted, isCompleted) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.startTime, startTime) &&
-            const DeepCollectionEquality().equals(other.endTime, endTime));
+            const DeepCollectionEquality().equals(other.endTime, endTime) &&
+            const DeepCollectionEquality().equals(other.taskColor, taskColor) &&
+            const DeepCollectionEquality().equals(other.remind, remind) &&
+            const DeepCollectionEquality().equals(other.repeat, repeat));
   }
 
   @JsonKey(ignore: true)
@@ -239,7 +361,10 @@ class _$_Task implements _Task {
       const DeepCollectionEquality().hash(isCompleted),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(startTime),
-      const DeepCollectionEquality().hash(endTime));
+      const DeepCollectionEquality().hash(endTime),
+      const DeepCollectionEquality().hash(taskColor),
+      const DeepCollectionEquality().hash(remind),
+      const DeepCollectionEquality().hash(repeat));
 
   @JsonKey(ignore: true)
   @override
@@ -260,12 +385,18 @@ abstract class _Task implements Task {
       required final String title,
       required final String note,
       required final bool isCompleted,
-      @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
+      @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           required final DateTime date,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
           required final TimeOfDay startTime,
-      @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required final TimeOfDay endTime}) = _$_Task;
+      @JsonKey(toJson: CustomSerializer.timeOfDayToJson, fromJson: CustomSerializer.jsonToTimeOfDay)
+          required final TimeOfDay endTime,
+      @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
+          required final TaskColor taskColor,
+      @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
+          required final Remind remind,
+      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
+          required final Repeat repeat}) = _$_Task;
 
   factory _Task.fromJson(Map<String, dynamic> json) = _$_Task.fromJson;
 
@@ -278,14 +409,35 @@ abstract class _Task implements Task {
   @override
   bool get isCompleted;
   @override
-  @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
+  @JsonKey(
+      toJson: CustomSerializer.dateToJson,
+      fromJson: CustomSerializer.jsonToDate)
   DateTime get date;
   @override
-  @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+  @JsonKey(
+      toJson: CustomSerializer.timeOfDayToJson,
+      fromJson: CustomSerializer.jsonToTimeOfDay)
   TimeOfDay get startTime;
   @override
-  @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
+  @JsonKey(
+      toJson: CustomSerializer.timeOfDayToJson,
+      fromJson: CustomSerializer.jsonToTimeOfDay)
   TimeOfDay get endTime;
+  @override
+  @JsonKey(
+      toJson: CustomSerializer.taskColorToJson,
+      fromJson: CustomSerializer.jsonToTaskColor)
+  TaskColor get taskColor;
+  @override
+  @JsonKey(
+      toJson: CustomSerializer.remindToJson,
+      fromJson: CustomSerializer.jsonToRemind)
+  Remind get remind;
+  @override
+  @JsonKey(
+      toJson: CustomSerializer.repeatToJson,
+      fromJson: CustomSerializer.jsonToRepeat)
+  Repeat get repeat;
   @override
   @JsonKey(ignore: true)
   _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;
