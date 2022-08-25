@@ -159,6 +159,14 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
     return _$changeEndTimeAsyncAction.run(() => super.changeEndTime(time));
   }
 
+  late final _$addTaskAsyncAction =
+      AsyncAction('AddTaskStoreBase.addTask', context: context);
+
+  @override
+  Future<dynamic> addTask() {
+    return _$addTaskAsyncAction.run(() => super.addTask());
+  }
+
   late final _$AddTaskStoreBaseActionController =
       ActionController(name: 'AddTaskStoreBase', context: context);
 
@@ -190,17 +198,6 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
         name: 'AddTaskStoreBase.changeColor');
     try {
       return super.changeColor(color);
-    } finally {
-      _$AddTaskStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void addTask() {
-    final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
-        name: 'AddTaskStoreBase.addTask');
-    try {
-      return super.addTask();
     } finally {
       _$AddTaskStoreBaseActionController.endAction(_$actionInfo);
     }

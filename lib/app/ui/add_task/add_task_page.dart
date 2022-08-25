@@ -10,9 +10,9 @@ import 'package:to_do/app/ui/add_task/widgets/info_picker.dart';
 import 'package:to_do/app/ui/add_task/widgets/text_input_field_type_one.dart';
 import 'package:to_do/app/ui/dialog/custom_dialog_type_one.dart';
 import 'package:to_do/app/ui/widgets/todo_button_type_one.dart';
-import 'package:to_do/core/domain/entity/extension/list_ext.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
 import 'package:to_do/core/domain/entity/repeat.dart';
+import 'package:to_do/core/domain/extension/list_ext.dart';
 import 'package:to_do/core/utils/add_task_utils.dart';
 
 import 'package:to_do/generated/l10n.dart';

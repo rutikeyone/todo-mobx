@@ -14,6 +14,23 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Repeat _$RepeatFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'none':
+      return RepeatNone.fromJson(json);
+    case 'daily':
+      return RepeatDaily.fromJson(json);
+    case 'weekly':
+      return RepeatWeekly.fromJson(json);
+    case 'monthly':
+      return RepeatMonthly.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'Repeat',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 mixin _$Repeat {
   @optionalTypeArgs
@@ -66,6 +83,7 @@ mixin _$Repeat {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -102,9 +120,15 @@ class __$$RepeatNoneCopyWithImpl<$Res> extends _$RepeatCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RepeatNone implements RepeatNone {
-  const _$RepeatNone();
+  const _$RepeatNone({final String? $type}) : $type = $type ?? 'none';
+
+  factory _$RepeatNone.fromJson(Map<String, dynamic> json) =>
+      _$$RepeatNoneFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -117,6 +141,7 @@ class _$RepeatNone implements RepeatNone {
         (other.runtimeType == runtimeType && other is _$RepeatNone);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -193,10 +218,20 @@ class _$RepeatNone implements RepeatNone {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RepeatNoneToJson(
+      this,
+    );
+  }
 }
 
 abstract class RepeatNone implements Repeat {
   const factory RepeatNone() = _$RepeatNone;
+
+  factory RepeatNone.fromJson(Map<String, dynamic> json) =
+      _$RepeatNone.fromJson;
 }
 
 /// @nodoc
@@ -218,9 +253,15 @@ class __$$RepeatDailyCopyWithImpl<$Res> extends _$RepeatCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RepeatDaily implements RepeatDaily {
-  const _$RepeatDaily();
+  const _$RepeatDaily({final String? $type}) : $type = $type ?? 'daily';
+
+  factory _$RepeatDaily.fromJson(Map<String, dynamic> json) =>
+      _$$RepeatDailyFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -233,6 +274,7 @@ class _$RepeatDaily implements RepeatDaily {
         (other.runtimeType == runtimeType && other is _$RepeatDaily);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -309,10 +351,20 @@ class _$RepeatDaily implements RepeatDaily {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RepeatDailyToJson(
+      this,
+    );
+  }
 }
 
 abstract class RepeatDaily implements Repeat {
   const factory RepeatDaily() = _$RepeatDaily;
+
+  factory RepeatDaily.fromJson(Map<String, dynamic> json) =
+      _$RepeatDaily.fromJson;
 }
 
 /// @nodoc
@@ -334,9 +386,15 @@ class __$$RepeatWeeklyCopyWithImpl<$Res> extends _$RepeatCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RepeatWeekly implements RepeatWeekly {
-  const _$RepeatWeekly();
+  const _$RepeatWeekly({final String? $type}) : $type = $type ?? 'weekly';
+
+  factory _$RepeatWeekly.fromJson(Map<String, dynamic> json) =>
+      _$$RepeatWeeklyFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -349,6 +407,7 @@ class _$RepeatWeekly implements RepeatWeekly {
         (other.runtimeType == runtimeType && other is _$RepeatWeekly);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -425,10 +484,20 @@ class _$RepeatWeekly implements RepeatWeekly {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RepeatWeeklyToJson(
+      this,
+    );
+  }
 }
 
 abstract class RepeatWeekly implements Repeat {
   const factory RepeatWeekly() = _$RepeatWeekly;
+
+  factory RepeatWeekly.fromJson(Map<String, dynamic> json) =
+      _$RepeatWeekly.fromJson;
 }
 
 /// @nodoc
@@ -450,9 +519,15 @@ class __$$RepeatMonthlyCopyWithImpl<$Res> extends _$RepeatCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RepeatMonthly implements RepeatMonthly {
-  const _$RepeatMonthly();
+  const _$RepeatMonthly({final String? $type}) : $type = $type ?? 'monthly';
+
+  factory _$RepeatMonthly.fromJson(Map<String, dynamic> json) =>
+      _$$RepeatMonthlyFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -465,6 +540,7 @@ class _$RepeatMonthly implements RepeatMonthly {
         (other.runtimeType == runtimeType && other is _$RepeatMonthly);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -541,8 +617,18 @@ class _$RepeatMonthly implements RepeatMonthly {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RepeatMonthlyToJson(
+      this,
+    );
+  }
 }
 
 abstract class RepeatMonthly implements Repeat {
   const factory RepeatMonthly() = _$RepeatMonthly;
+
+  factory RepeatMonthly.fromJson(Map<String, dynamic> json) =
+      _$RepeatMonthly.fromJson;
 }

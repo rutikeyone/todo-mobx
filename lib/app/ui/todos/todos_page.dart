@@ -40,6 +40,7 @@ class _TodosPageState extends State<TodosPage> {
   @override
   void dispose() {
     widget.store.dispose();
+    themeReaction();
     super.dispose();
   }
 

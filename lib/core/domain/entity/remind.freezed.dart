@@ -14,6 +14,23 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Remind _$RemindFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'fiveMinutesEarly':
+      return RemindFiveMinutesEarly.fromJson(json);
+    case 'tenMinutesEarly':
+      return RemindTenMinutesEarly.fromJson(json);
+    case 'fifteenMinutesEarly':
+      return RemindFifteenMinutesEarly.fromJson(json);
+    case 'twentyMinutesEarly':
+      return RemindTwentyMinutesEarly.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'Remind',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
+}
+
 /// @nodoc
 mixin _$Remind {
   @optionalTypeArgs
@@ -68,6 +85,7 @@ mixin _$Remind {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -106,9 +124,16 @@ class __$$RemindFiveMinutesEarlyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RemindFiveMinutesEarly implements RemindFiveMinutesEarly {
-  const _$RemindFiveMinutesEarly();
+  const _$RemindFiveMinutesEarly({final String? $type})
+      : $type = $type ?? 'fiveMinutesEarly';
+
+  factory _$RemindFiveMinutesEarly.fromJson(Map<String, dynamic> json) =>
+      _$$RemindFiveMinutesEarlyFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -121,6 +146,7 @@ class _$RemindFiveMinutesEarly implements RemindFiveMinutesEarly {
         (other.runtimeType == runtimeType && other is _$RemindFiveMinutesEarly);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -199,10 +225,20 @@ class _$RemindFiveMinutesEarly implements RemindFiveMinutesEarly {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RemindFiveMinutesEarlyToJson(
+      this,
+    );
+  }
 }
 
 abstract class RemindFiveMinutesEarly implements Remind {
   const factory RemindFiveMinutesEarly() = _$RemindFiveMinutesEarly;
+
+  factory RemindFiveMinutesEarly.fromJson(Map<String, dynamic> json) =
+      _$RemindFiveMinutesEarly.fromJson;
 }
 
 /// @nodoc
@@ -225,9 +261,16 @@ class __$$RemindTenMinutesEarlyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RemindTenMinutesEarly implements RemindTenMinutesEarly {
-  const _$RemindTenMinutesEarly();
+  const _$RemindTenMinutesEarly({final String? $type})
+      : $type = $type ?? 'tenMinutesEarly';
+
+  factory _$RemindTenMinutesEarly.fromJson(Map<String, dynamic> json) =>
+      _$$RemindTenMinutesEarlyFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -240,6 +283,7 @@ class _$RemindTenMinutesEarly implements RemindTenMinutesEarly {
         (other.runtimeType == runtimeType && other is _$RemindTenMinutesEarly);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -318,10 +362,20 @@ class _$RemindTenMinutesEarly implements RemindTenMinutesEarly {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RemindTenMinutesEarlyToJson(
+      this,
+    );
+  }
 }
 
 abstract class RemindTenMinutesEarly implements Remind {
   const factory RemindTenMinutesEarly() = _$RemindTenMinutesEarly;
+
+  factory RemindTenMinutesEarly.fromJson(Map<String, dynamic> json) =
+      _$RemindTenMinutesEarly.fromJson;
 }
 
 /// @nodoc
@@ -346,9 +400,16 @@ class __$$RemindFifteenMinutesEarlyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RemindFifteenMinutesEarly implements RemindFifteenMinutesEarly {
-  const _$RemindFifteenMinutesEarly();
+  const _$RemindFifteenMinutesEarly({final String? $type})
+      : $type = $type ?? 'fifteenMinutesEarly';
+
+  factory _$RemindFifteenMinutesEarly.fromJson(Map<String, dynamic> json) =>
+      _$$RemindFifteenMinutesEarlyFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -362,6 +423,7 @@ class _$RemindFifteenMinutesEarly implements RemindFifteenMinutesEarly {
             other is _$RemindFifteenMinutesEarly);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -440,10 +502,20 @@ class _$RemindFifteenMinutesEarly implements RemindFifteenMinutesEarly {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RemindFifteenMinutesEarlyToJson(
+      this,
+    );
+  }
 }
 
 abstract class RemindFifteenMinutesEarly implements Remind {
   const factory RemindFifteenMinutesEarly() = _$RemindFifteenMinutesEarly;
+
+  factory RemindFifteenMinutesEarly.fromJson(Map<String, dynamic> json) =
+      _$RemindFifteenMinutesEarly.fromJson;
 }
 
 /// @nodoc
@@ -467,9 +539,16 @@ class __$$RemindTwentyMinutesEarlyCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$RemindTwentyMinutesEarly implements RemindTwentyMinutesEarly {
-  const _$RemindTwentyMinutesEarly();
+  const _$RemindTwentyMinutesEarly({final String? $type})
+      : $type = $type ?? 'twentyMinutesEarly';
+
+  factory _$RemindTwentyMinutesEarly.fromJson(Map<String, dynamic> json) =>
+      _$$RemindTwentyMinutesEarlyFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -483,6 +562,7 @@ class _$RemindTwentyMinutesEarly implements RemindTwentyMinutesEarly {
             other is _$RemindTwentyMinutesEarly);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -561,8 +641,18 @@ class _$RemindTwentyMinutesEarly implements RemindTwentyMinutesEarly {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RemindTwentyMinutesEarlyToJson(
+      this,
+    );
+  }
 }
 
 abstract class RemindTwentyMinutesEarly implements Remind {
   const factory RemindTwentyMinutesEarly() = _$RemindTwentyMinutesEarly;
+
+  factory RemindTwentyMinutesEarly.fromJson(Map<String, dynamic> json) =
+      _$RemindTwentyMinutesEarly.fromJson;
 }

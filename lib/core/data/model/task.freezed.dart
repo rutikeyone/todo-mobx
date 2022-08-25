@@ -14,22 +14,27 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Task _$TaskFromJson(Map<String, dynamic> json) {
+  return _Task.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Task {
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
   @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
   DateTime get date => throw _privateConstructorUsedError;
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-  TimeOfDay get startDate => throw _privateConstructorUsedError;
+  TimeOfDay get startTime => throw _privateConstructorUsedError;
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-  TimeOfDay get endDate => throw _privateConstructorUsedError;
+  TimeOfDay get endTime => throw _privateConstructorUsedError;
   TaskColor get taskColor => throw _privateConstructorUsedError;
   Remind get remind => throw _privateConstructorUsedError;
   Repeat get repeat => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TaskCopyWith<Task> get copyWith => throw _privateConstructorUsedError;
 }
@@ -39,16 +44,16 @@ abstract class $TaskCopyWith<$Res> {
   factory $TaskCopyWith(Task value, $Res Function(Task) then) =
       _$TaskCopyWithImpl<$Res>;
   $Res call(
-      {int id,
+      {int? id,
       String title,
       String note,
       bool isCompleted,
       @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
           DateTime date,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay startDate,
+          TimeOfDay startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay endDate,
+          TimeOfDay endTime,
       TaskColor taskColor,
       Remind remind,
       Repeat repeat});
@@ -73,8 +78,8 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
     Object? note = freezed,
     Object? isCompleted = freezed,
     Object? date = freezed,
-    Object? startDate = freezed,
-    Object? endDate = freezed,
+    Object? startTime = freezed,
+    Object? endTime = freezed,
     Object? taskColor = freezed,
     Object? remind = freezed,
     Object? repeat = freezed,
@@ -83,7 +88,7 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -100,13 +105,13 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      startDate: startDate == freezed
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
+      startTime: startTime == freezed
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
-      endDate: endDate == freezed
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
+      endTime: endTime == freezed
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
       taskColor: taskColor == freezed
           ? _value.taskColor
@@ -151,16 +156,16 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       __$$_TaskCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
+      {int? id,
       String title,
       String note,
       bool isCompleted,
       @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
           DateTime date,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay startDate,
+          TimeOfDay startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay endDate,
+          TimeOfDay endTime,
       TaskColor taskColor,
       Remind remind,
       Repeat repeat});
@@ -189,8 +194,8 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
     Object? note = freezed,
     Object? isCompleted = freezed,
     Object? date = freezed,
-    Object? startDate = freezed,
-    Object? endDate = freezed,
+    Object? startTime = freezed,
+    Object? endTime = freezed,
     Object? taskColor = freezed,
     Object? remind = freezed,
     Object? repeat = freezed,
@@ -199,7 +204,7 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -216,13 +221,13 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      startDate: startDate == freezed
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
+      startTime: startTime == freezed
+          ? _value.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
-      endDate: endDate == freezed
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
+      endTime: endTime == freezed
+          ? _value.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
       taskColor: taskColor == freezed
           ? _value.taskColor
@@ -241,25 +246,27 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Task implements _Task {
   _$_Task(
-      {required this.id,
+      {this.id,
       required this.title,
       required this.note,
       required this.isCompleted,
       @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
           required this.date,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required this.startDate,
+          required this.startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required this.endDate,
+          required this.endTime,
       required this.taskColor,
       required this.remind,
       required this.repeat});
 
+  factory _$_Task.fromJson(Map<String, dynamic> json) => _$$_TaskFromJson(json);
+
   @override
-  final int id;
+  final int? id;
   @override
   final String title;
   @override
@@ -271,10 +278,10 @@ class _$_Task implements _Task {
   final DateTime date;
   @override
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-  final TimeOfDay startDate;
+  final TimeOfDay startTime;
   @override
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-  final TimeOfDay endDate;
+  final TimeOfDay endTime;
   @override
   final TaskColor taskColor;
   @override
@@ -284,7 +291,7 @@ class _$_Task implements _Task {
 
   @override
   String toString() {
-    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startDate: $startDate, endDate: $endDate, taskColor: $taskColor, remind: $remind, repeat: $repeat)';
+    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startTime: $startTime, endTime: $endTime, taskColor: $taskColor, remind: $remind, repeat: $repeat)';
   }
 
   @override
@@ -298,13 +305,14 @@ class _$_Task implements _Task {
             const DeepCollectionEquality()
                 .equals(other.isCompleted, isCompleted) &&
             const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.startDate, startDate) &&
-            const DeepCollectionEquality().equals(other.endDate, endDate) &&
+            const DeepCollectionEquality().equals(other.startTime, startTime) &&
+            const DeepCollectionEquality().equals(other.endTime, endTime) &&
             const DeepCollectionEquality().equals(other.taskColor, taskColor) &&
             const DeepCollectionEquality().equals(other.remind, remind) &&
             const DeepCollectionEquality().equals(other.repeat, repeat));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -313,8 +321,8 @@ class _$_Task implements _Task {
       const DeepCollectionEquality().hash(note),
       const DeepCollectionEquality().hash(isCompleted),
       const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(startDate),
-      const DeepCollectionEquality().hash(endDate),
+      const DeepCollectionEquality().hash(startTime),
+      const DeepCollectionEquality().hash(endTime),
       const DeepCollectionEquality().hash(taskColor),
       const DeepCollectionEquality().hash(remind),
       const DeepCollectionEquality().hash(repeat));
@@ -323,26 +331,35 @@ class _$_Task implements _Task {
   @override
   _$$_TaskCopyWith<_$_Task> get copyWith =>
       __$$_TaskCopyWithImpl<_$_Task>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TaskToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Task implements Task {
   factory _Task(
-      {required final int id,
+      {final int? id,
       required final String title,
       required final String note,
       required final bool isCompleted,
       @JsonKey(toJson: dateToJson, fromJson: jsonToDate)
           required final DateTime date,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required final TimeOfDay startDate,
+          required final TimeOfDay startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required final TimeOfDay endDate,
+          required final TimeOfDay endTime,
       required final TaskColor taskColor,
       required final Remind remind,
       required final Repeat repeat}) = _$_Task;
 
+  factory _Task.fromJson(Map<String, dynamic> json) = _$_Task.fromJson;
+
   @override
-  int get id;
+  int? get id;
   @override
   String get title;
   @override
@@ -354,10 +371,10 @@ abstract class _Task implements Task {
   DateTime get date;
   @override
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-  TimeOfDay get startDate;
+  TimeOfDay get startTime;
   @override
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-  TimeOfDay get endDate;
+  TimeOfDay get endTime;
   @override
   TaskColor get taskColor;
   @override

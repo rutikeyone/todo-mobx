@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/app/store/add_task_store/add_task_store.dart';
 import 'package:to_do/app/ui/add_task/add_task_page.dart';
+import 'package:to_do/core/di/service_locator/locator.dart';
+import 'package:to_do/core/domain/service/db_service.dart';
 
 class AddTaskScreen extends StatelessWidget {
   final AddTaskStore _addTaskStore;
   AddTaskScreen({Key? key})
-      : _addTaskStore = AddTaskStore(),
+      : _addTaskStore = AddTaskStore(locator.get<DbService>()),
         super(key: key);
 
   @override

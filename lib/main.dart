@@ -4,7 +4,7 @@ import 'package:to_do/core/di/service_locator/locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setup();
   final diContainer = makeDIContainer();
+  await setup(diContainer);
   runApp(diContainer.makeApp());
 }

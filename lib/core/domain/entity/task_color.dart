@@ -22,4 +22,4 @@ class TaskColor with _$TaskColor {
 
 String colorToJson(Color color) => color.value.toString();
 
-Color jsonToColor(dynamic json) => Color(json as int);
+Color jsonToColor(dynamic json) => Color(int.parse(json));
