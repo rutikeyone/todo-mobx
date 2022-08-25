@@ -31,9 +31,8 @@ class TaskDatabaseImpl extends TaskDatabase {
         startTime TEXT NOT NULL,
         endTime TEXT NOT NULL,
         taskColor TEXT NOT NULL,
-        remind TEXT NOT NULL,
-        repeat TEXT NOT NULL
-      )
+        remind TEXT NOT NULL
+        )
       ''');
   }
 

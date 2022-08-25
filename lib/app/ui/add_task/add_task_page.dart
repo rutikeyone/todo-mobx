@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:intl/intl.dart';
-import 'package:mobx/mobx.dart';
 import 'package:to_do/app/store/add_task_store/add_task_store.dart';
 import 'package:to_do/app/theme/custom_color.dart';
 import 'package:to_do/app/theme/custom_text_theme.dart';
@@ -15,7 +14,6 @@ import 'package:to_do/app/ui/dialog/custom_dialog_type_one.dart';
 import 'package:to_do/app/ui/widgets/todo_button_type_one.dart';
 import 'package:to_do/core/domain/entity/db_result.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
-import 'package:to_do/core/domain/entity/repeat.dart';
 import 'package:to_do/core/domain/extension/list_ext.dart';
 import 'package:to_do/core/utils/add_task_utils.dart';
 
@@ -195,30 +193,6 @@ class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
                                 selectedItem: widget.store.remind,
                                 onSelect: (value) =>
                                     widget.store.changeRemind(value),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Observer(
-                          builder: (_) => InfoPicker(
-                            width: MediaQuery.of(context).size.width,
-                            title: S.of(context).repeat,
-                            icon: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Theme.of(context)
-                                  .extension<CustomColor>()!
-                                  .iconColor1,
-                            ),
-                            value: parseRepeat(widget.store.repeat, context),
-                            onTap: () => showDialog(
-                              context: context,
-                              builder: (context) => CustomDialogTypeOne<Repeat>(
-                                title: S.of(context).repeat,
-                                items: repeatItems.toMap((e) =>
-                                    MapEntry(parseRepeat(e, context), e)),
-                                selectedItem: widget.store.repeat,
-                                onSelect: (value) =>
-                                    widget.store.changeRepeat(value),
                               ),
                             ),
                           ),

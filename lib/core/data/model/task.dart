@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:to_do/app/store/add_task_store/add_task_store.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
-import 'package:to_do/core/domain/entity/repeat.dart';
 import 'package:to_do/core/domain/entity/task_color.dart';
 import 'package:to_do/core/utils/custom_serializer.dart';
 
@@ -28,8 +27,6 @@ class Task with _$Task {
         required final TaskColor taskColor,
     @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
         required final Remind remind,
-    @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
-        required final Repeat repeat,
   }) = _Task;
 
   factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
@@ -45,6 +42,5 @@ class Task with _$Task {
         endTime: addTaskStore.endTime,
         taskColor: addTaskStore.color,
         remind: addTaskStore.remind,
-        repeat: addTaskStore.repeat,
       );
 }

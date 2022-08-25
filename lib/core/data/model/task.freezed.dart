@@ -44,10 +44,6 @@ mixin _$Task {
       toJson: CustomSerializer.remindToJson,
       fromJson: CustomSerializer.jsonToRemind)
   Remind get remind => throw _privateConstructorUsedError;
-  @JsonKey(
-      toJson: CustomSerializer.repeatToJson,
-      fromJson: CustomSerializer.jsonToRepeat)
-  Repeat get repeat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,13 +68,10 @@ abstract class $TaskCopyWith<$Res> {
       @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
           TaskColor taskColor,
       @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
-          Remind remind,
-      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
-          Repeat repeat});
+          Remind remind});
 
   $TaskColorCopyWith<$Res> get taskColor;
   $RemindCopyWith<$Res> get remind;
-  $RepeatCopyWith<$Res> get repeat;
 }
 
 /// @nodoc
@@ -100,7 +93,6 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
     Object? endTime = freezed,
     Object? taskColor = freezed,
     Object? remind = freezed,
-    Object? repeat = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -139,10 +131,6 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
           ? _value.remind
           : remind // ignore: cast_nullable_to_non_nullable
               as Remind,
-      repeat: repeat == freezed
-          ? _value.repeat
-          : repeat // ignore: cast_nullable_to_non_nullable
-              as Repeat,
     ));
   }
 
@@ -157,13 +145,6 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
   $RemindCopyWith<$Res> get remind {
     return $RemindCopyWith<$Res>(_value.remind, (value) {
       return _then(_value.copyWith(remind: value));
-    });
-  }
-
-  @override
-  $RepeatCopyWith<$Res> get repeat {
-    return $RepeatCopyWith<$Res>(_value.repeat, (value) {
-      return _then(_value.copyWith(repeat: value));
     });
   }
 }
@@ -187,16 +168,12 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
           TaskColor taskColor,
       @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
-          Remind remind,
-      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
-          Repeat repeat});
+          Remind remind});
 
   @override
   $TaskColorCopyWith<$Res> get taskColor;
   @override
   $RemindCopyWith<$Res> get remind;
-  @override
-  $RepeatCopyWith<$Res> get repeat;
 }
 
 /// @nodoc
@@ -219,7 +196,6 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
     Object? endTime = freezed,
     Object? taskColor = freezed,
     Object? remind = freezed,
-    Object? repeat = freezed,
   }) {
     return _then(_$_Task(
       id: id == freezed
@@ -258,10 +234,6 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
           ? _value.remind
           : remind // ignore: cast_nullable_to_non_nullable
               as Remind,
-      repeat: repeat == freezed
-          ? _value.repeat
-          : repeat // ignore: cast_nullable_to_non_nullable
-              as Repeat,
     ));
   }
 }
@@ -283,9 +255,7 @@ class _$_Task implements _Task {
       @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
           required this.taskColor,
       @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
-          required this.remind,
-      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
-          required this.repeat});
+          required this.remind});
 
   factory _$_Task.fromJson(Map<String, dynamic> json) => _$$_TaskFromJson(json);
 
@@ -322,15 +292,10 @@ class _$_Task implements _Task {
       toJson: CustomSerializer.remindToJson,
       fromJson: CustomSerializer.jsonToRemind)
   final Remind remind;
-  @override
-  @JsonKey(
-      toJson: CustomSerializer.repeatToJson,
-      fromJson: CustomSerializer.jsonToRepeat)
-  final Repeat repeat;
 
   @override
   String toString() {
-    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startTime: $startTime, endTime: $endTime, taskColor: $taskColor, remind: $remind, repeat: $repeat)';
+    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startTime: $startTime, endTime: $endTime, taskColor: $taskColor, remind: $remind)';
   }
 
   @override
@@ -347,8 +312,7 @@ class _$_Task implements _Task {
             const DeepCollectionEquality().equals(other.startTime, startTime) &&
             const DeepCollectionEquality().equals(other.endTime, endTime) &&
             const DeepCollectionEquality().equals(other.taskColor, taskColor) &&
-            const DeepCollectionEquality().equals(other.remind, remind) &&
-            const DeepCollectionEquality().equals(other.repeat, repeat));
+            const DeepCollectionEquality().equals(other.remind, remind));
   }
 
   @JsonKey(ignore: true)
@@ -363,8 +327,7 @@ class _$_Task implements _Task {
       const DeepCollectionEquality().hash(startTime),
       const DeepCollectionEquality().hash(endTime),
       const DeepCollectionEquality().hash(taskColor),
-      const DeepCollectionEquality().hash(remind),
-      const DeepCollectionEquality().hash(repeat));
+      const DeepCollectionEquality().hash(remind));
 
   @JsonKey(ignore: true)
   @override
@@ -394,9 +357,7 @@ abstract class _Task implements Task {
       @JsonKey(toJson: CustomSerializer.taskColorToJson, fromJson: CustomSerializer.jsonToTaskColor)
           required final TaskColor taskColor,
       @JsonKey(toJson: CustomSerializer.remindToJson, fromJson: CustomSerializer.jsonToRemind)
-          required final Remind remind,
-      @JsonKey(toJson: CustomSerializer.repeatToJson, fromJson: CustomSerializer.jsonToRepeat)
-          required final Repeat repeat}) = _$_Task;
+          required final Remind remind}) = _$_Task;
 
   factory _Task.fromJson(Map<String, dynamic> json) = _$_Task.fromJson;
 
@@ -433,11 +394,6 @@ abstract class _Task implements Task {
       toJson: CustomSerializer.remindToJson,
       fromJson: CustomSerializer.jsonToRemind)
   Remind get remind;
-  @override
-  @JsonKey(
-      toJson: CustomSerializer.repeatToJson,
-      fromJson: CustomSerializer.jsonToRepeat)
-  Repeat get repeat;
   @override
   @JsonKey(ignore: true)
   _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;

@@ -9,7 +9,6 @@ import 'package:to_do/core/domain/entity/db_result.dart';
 import 'package:to_do/core/domain/entity/end_date_error.dart';
 import 'package:to_do/core/domain/entity/form_error.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
-import 'package:to_do/core/domain/entity/repeat.dart';
 import 'package:to_do/core/domain/entity/start_date_error.dart';
 import 'package:to_do/core/domain/entity/task_color.dart';
 import 'package:to_do/core/domain/extension/time_of_day_ext.dart';
@@ -47,9 +46,6 @@ abstract class AddTaskStoreBase with Store {
 
   @observable
   Remind remind = const Remind.fiveMinutesEarly();
-
-  @observable
-  Repeat repeat = const Repeat.none();
 
   @observable
   TaskColor color = TaskColor.blue;
@@ -99,11 +95,6 @@ abstract class AddTaskStoreBase with Store {
   @action
   void changeRemind(Remind remind) {
     this.remind = remind;
-  }
-
-  @action
-  void changeRepeat(Repeat repeat) {
-    this.repeat = repeat;
   }
 
   @action

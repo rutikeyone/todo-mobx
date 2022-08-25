@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
-import 'package:to_do/core/domain/entity/repeat.dart';
 import 'package:to_do/core/domain/entity/task_color.dart';
 
 const colorValue = 'color';
@@ -10,10 +9,6 @@ const hourValue = 'hour';
 const minuteValue = 'minute';
 
 class CustomSerializer {
-  static String repeatToJson(Repeat repeat) => jsonEncode(repeat.toJson());
-
-  static Repeat jsonToRepeat(dynamic json) => Repeat.fromJson(jsonDecode(json));
-
   static String remindToJson(Remind remind) => jsonEncode(remind.toJson());
 
   static Remind jsonToRemind(dynamic json) => Remind.fromJson(jsonDecode(json));

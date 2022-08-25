@@ -103,22 +103,6 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
     });
   }
 
-  late final _$repeatAtom =
-      Atom(name: 'AddTaskStoreBase.repeat', context: context);
-
-  @override
-  Repeat get repeat {
-    _$repeatAtom.reportRead();
-    return super.repeat;
-  }
-
-  @override
-  set repeat(Repeat value) {
-    _$repeatAtom.reportWrite(value, super.repeat, () {
-      super.repeat = value;
-    });
-  }
-
   late final _$colorAtom =
       Atom(name: 'AddTaskStoreBase.color', context: context);
 
@@ -182,17 +166,6 @@ mixin _$AddTaskStore on AddTaskStoreBase, Store {
   }
 
   @override
-  void changeRepeat(Repeat repeat) {
-    final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
-        name: 'AddTaskStoreBase.changeRepeat');
-    try {
-      return super.changeRepeat(repeat);
-    } finally {
-      _$AddTaskStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   void changeColor(TaskColor color) {
     final _$actionInfo = _$AddTaskStoreBaseActionController.startAction(
         name: 'AddTaskStoreBase.changeColor');
@@ -212,7 +185,6 @@ date: ${date},
 startTime: ${startTime},
 endTime: ${endTime},
 remind: ${remind},
-repeat: ${repeat},
 color: ${color}
     ''';
   }
