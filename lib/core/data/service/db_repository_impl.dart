@@ -1,27 +1,43 @@
 import 'package:to_do/core/data/db/task_db.dart';
 import 'package:to_do/core/data/model/task.dart';
+import 'package:to_do/core/domain/entity/db_result.dart';
 import 'package:to_do/core/domain/service/db_service.dart';
 
 class DbServiceImpl extends DbService {
   const DbServiceImpl(TaskDatabase db) : super(db);
 
   @override
-  Future add(Task task) {
-    return db.add(task);
+  Future<DbResult> add(Task task) async {
+    try {
+      db.add(task);
+      return const DbResult.success();
+    } catch (e) {
+      return const DbResult.failure();
+    }
   }
 
   @override
-  Future<List<Task>> getTasks() {
+  Future<List<Task>> getTasks() async {
     return db.getTasks();
   }
 
   @override
-  Future remove(int id) {
-    return db.remove(id);
+  Future<DbResult> remove(int id) async {
+    try {
+      db.remove(id);
+      return const DbResult.success();
+    } catch (e) {
+      return const DbResult.failure();
+    }
   }
 
   @override
-  Future update(Task task) {
-    return db.update(task);
+  Future<DbResult> update(Task task) async {
+    try {
+      db.update(task);
+      return const DbResult.success();
+    } catch (e) {
+      return const DbResult.failure();
+    }
   }
 }

@@ -24,5 +24,7 @@
     "daily" : "Daily",
     "weekly" : "Weekly",
     "monthly" : "Monthly",
-    "color" : "Color"
+    "color" : "Color",
+    "successfully_added" : "Successfully added",
+    "some_error_1" : "Oops, something went wrong"
 }

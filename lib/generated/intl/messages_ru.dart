@@ -47,9 +47,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_hint": MessageLookupByLibrary.simpleMessage("Введите запись"),
         "remind": MessageLookupByLibrary.simpleMessage("Напоминание"),
         "repeat": MessageLookupByLibrary.simpleMessage("Повторение"),
+        "some_error_1":
+            MessageLookupByLibrary.simpleMessage("Упс, что-то пошло не так"),
         "start_time": MessageLookupByLibrary.simpleMessage("Начало"),
         "start_time_is_after_end_time": MessageLookupByLibrary.simpleMessage(
             "Дата начала после даты окончания"),
+        "successfully_added":
+            MessageLookupByLibrary.simpleMessage("Успешно добавлено"),
         "ten_minutes_early":
             MessageLookupByLibrary.simpleMessage("На 10 минут раньше"),
         "title": MessageLookupByLibrary.simpleMessage("Заголовок"),

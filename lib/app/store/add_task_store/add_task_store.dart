@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:to_do/app/store/add_task_store/add_task_form_state.dart';
 import 'package:to_do/core/data/model/task.dart';
+import 'package:to_do/core/domain/entity/db_result.dart';
 import 'package:to_do/core/domain/entity/end_date_error.dart';
 import 'package:to_do/core/domain/entity/form_error.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
@@ -19,7 +23,10 @@ abstract class AddTaskStoreBase with Store {
   final DbService dbService;
 
   late List<ReactionDisposer> _disposers;
+  late final StreamController<DbResult> _dbResultController;
+  late final ObservableStream<DbResult> dbResultStream;
   late AddTaskFormState _addTaskFormState;
+
   AddTaskFormState get addTaskFormState => _addTaskFormState;
 
   @observable
@@ -48,6 +55,8 @@ abstract class AddTaskStoreBase with Store {
   TaskColor color = TaskColor.blue;
 
   AddTaskStoreBase(this.dbService) {
+    _dbResultController = BehaviorSubject();
+    dbResultStream = ObservableStream(_dbResultController.stream);
     _addTaskFormState = AddTaskFormState();
     _disposers = [
       reaction((_) => title, validateTitle),
@@ -107,8 +116,8 @@ abstract class AddTaskStoreBase with Store {
     _validateAll();
     if (!_addTaskFormState.hasErrors) {
       final task = Task.fromAddTaskStore(this);
-
-      await dbService.add(task);
+      final addedResult = await dbService.add(task);
+      _dbResultController.add(addedResult);
     }
   }
 

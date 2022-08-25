@@ -1,5 +1,6 @@
 import 'package:to_do/core/data/db/task_db.dart';
 import 'package:to_do/core/data/model/task.dart';
+import 'package:to_do/core/domain/entity/db_result.dart';
 
 abstract class DbService {
   final TaskDatabase db;
@@ -8,9 +9,9 @@ abstract class DbService {
 
   Future<List<Task>> getTasks();
 
-  Future add(Task task);
+  Future<DbResult> add(Task task);
 
-  Future remove(int id);
+  Future<DbResult> remove(int id);
 
-  Future update(Task task);
+  Future<DbResult> update(Task task);
 }

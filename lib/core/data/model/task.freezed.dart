@@ -30,9 +30,6 @@ mixin _$Task {
   TimeOfDay get startTime => throw _privateConstructorUsedError;
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
   TimeOfDay get endTime => throw _privateConstructorUsedError;
-  TaskColor get taskColor => throw _privateConstructorUsedError;
-  Remind get remind => throw _privateConstructorUsedError;
-  Repeat get repeat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,14 +50,7 @@ abstract class $TaskCopyWith<$Res> {
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
           TimeOfDay startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay endTime,
-      TaskColor taskColor,
-      Remind remind,
-      Repeat repeat});
-
-  $TaskColorCopyWith<$Res> get taskColor;
-  $RemindCopyWith<$Res> get remind;
-  $RepeatCopyWith<$Res> get repeat;
+          TimeOfDay endTime});
 }
 
 /// @nodoc
@@ -80,9 +70,6 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
     Object? date = freezed,
     Object? startTime = freezed,
     Object? endTime = freezed,
-    Object? taskColor = freezed,
-    Object? remind = freezed,
-    Object? repeat = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -113,40 +100,7 @@ class _$TaskCopyWithImpl<$Res> implements $TaskCopyWith<$Res> {
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
-      taskColor: taskColor == freezed
-          ? _value.taskColor
-          : taskColor // ignore: cast_nullable_to_non_nullable
-              as TaskColor,
-      remind: remind == freezed
-          ? _value.remind
-          : remind // ignore: cast_nullable_to_non_nullable
-              as Remind,
-      repeat: repeat == freezed
-          ? _value.repeat
-          : repeat // ignore: cast_nullable_to_non_nullable
-              as Repeat,
     ));
-  }
-
-  @override
-  $TaskColorCopyWith<$Res> get taskColor {
-    return $TaskColorCopyWith<$Res>(_value.taskColor, (value) {
-      return _then(_value.copyWith(taskColor: value));
-    });
-  }
-
-  @override
-  $RemindCopyWith<$Res> get remind {
-    return $RemindCopyWith<$Res>(_value.remind, (value) {
-      return _then(_value.copyWith(remind: value));
-    });
-  }
-
-  @override
-  $RepeatCopyWith<$Res> get repeat {
-    return $RepeatCopyWith<$Res>(_value.repeat, (value) {
-      return _then(_value.copyWith(repeat: value));
-    });
   }
 }
 
@@ -165,17 +119,7 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
           TimeOfDay startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          TimeOfDay endTime,
-      TaskColor taskColor,
-      Remind remind,
-      Repeat repeat});
-
-  @override
-  $TaskColorCopyWith<$Res> get taskColor;
-  @override
-  $RemindCopyWith<$Res> get remind;
-  @override
-  $RepeatCopyWith<$Res> get repeat;
+          TimeOfDay endTime});
 }
 
 /// @nodoc
@@ -196,9 +140,6 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
     Object? date = freezed,
     Object? startTime = freezed,
     Object? endTime = freezed,
-    Object? taskColor = freezed,
-    Object? remind = freezed,
-    Object? repeat = freezed,
   }) {
     return _then(_$_Task(
       id: id == freezed
@@ -229,18 +170,6 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res>
           ? _value.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
-      taskColor: taskColor == freezed
-          ? _value.taskColor
-          : taskColor // ignore: cast_nullable_to_non_nullable
-              as TaskColor,
-      remind: remind == freezed
-          ? _value.remind
-          : remind // ignore: cast_nullable_to_non_nullable
-              as Remind,
-      repeat: repeat == freezed
-          ? _value.repeat
-          : repeat // ignore: cast_nullable_to_non_nullable
-              as Repeat,
     ));
   }
 }
@@ -258,10 +187,7 @@ class _$_Task implements _Task {
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
           required this.startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required this.endTime,
-      required this.taskColor,
-      required this.remind,
-      required this.repeat});
+          required this.endTime});
 
   factory _$_Task.fromJson(Map<String, dynamic> json) => _$$_TaskFromJson(json);
 
@@ -282,16 +208,10 @@ class _$_Task implements _Task {
   @override
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
   final TimeOfDay endTime;
-  @override
-  final TaskColor taskColor;
-  @override
-  final Remind remind;
-  @override
-  final Repeat repeat;
 
   @override
   String toString() {
-    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startTime: $startTime, endTime: $endTime, taskColor: $taskColor, remind: $remind, repeat: $repeat)';
+    return 'Task(id: $id, title: $title, note: $note, isCompleted: $isCompleted, date: $date, startTime: $startTime, endTime: $endTime)';
   }
 
   @override
@@ -306,10 +226,7 @@ class _$_Task implements _Task {
                 .equals(other.isCompleted, isCompleted) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.startTime, startTime) &&
-            const DeepCollectionEquality().equals(other.endTime, endTime) &&
-            const DeepCollectionEquality().equals(other.taskColor, taskColor) &&
-            const DeepCollectionEquality().equals(other.remind, remind) &&
-            const DeepCollectionEquality().equals(other.repeat, repeat));
+            const DeepCollectionEquality().equals(other.endTime, endTime));
   }
 
   @JsonKey(ignore: true)
@@ -322,10 +239,7 @@ class _$_Task implements _Task {
       const DeepCollectionEquality().hash(isCompleted),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(startTime),
-      const DeepCollectionEquality().hash(endTime),
-      const DeepCollectionEquality().hash(taskColor),
-      const DeepCollectionEquality().hash(remind),
-      const DeepCollectionEquality().hash(repeat));
+      const DeepCollectionEquality().hash(endTime));
 
   @JsonKey(ignore: true)
   @override
@@ -351,10 +265,7 @@ abstract class _Task implements Task {
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
           required final TimeOfDay startTime,
       @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
-          required final TimeOfDay endTime,
-      required final TaskColor taskColor,
-      required final Remind remind,
-      required final Repeat repeat}) = _$_Task;
+          required final TimeOfDay endTime}) = _$_Task;
 
   factory _Task.fromJson(Map<String, dynamic> json) = _$_Task.fromJson;
 
@@ -375,12 +286,6 @@ abstract class _Task implements Task {
   @override
   @JsonKey(toJson: timeOfDayToJson, fromJson: jsonToTimeOfDay)
   TimeOfDay get endTime;
-  @override
-  TaskColor get taskColor;
-  @override
-  Remind get remind;
-  @override
-  Repeat get repeat;
   @override
   @JsonKey(ignore: true)
   _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;

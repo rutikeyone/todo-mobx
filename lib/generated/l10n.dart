@@ -309,6 +309,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Successfully added`
+  String get successfully_added {
+    return Intl.message(
+      'Successfully added',
+      name: 'successfully_added',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oops, something went wrong`
+  String get some_error_1 {
+    return Intl.message(
+      'Oops, something went wrong',
+      name: 'some_error_1',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

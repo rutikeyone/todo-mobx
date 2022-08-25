@@ -46,9 +46,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_hint": MessageLookupByLibrary.simpleMessage("Enter note here"),
         "remind": MessageLookupByLibrary.simpleMessage("Remind"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
+        "some_error_1":
+            MessageLookupByLibrary.simpleMessage("Oops, something went wrong"),
         "start_time": MessageLookupByLibrary.simpleMessage("Start time"),
         "start_time_is_after_end_time": MessageLookupByLibrary.simpleMessage(
             "Start time is after end time"),
+        "successfully_added":
+            MessageLookupByLibrary.simpleMessage("Successfully added"),
         "ten_minutes_early":
             MessageLookupByLibrary.simpleMessage("10 minutes early"),
         "title": MessageLookupByLibrary.simpleMessage("Title"),

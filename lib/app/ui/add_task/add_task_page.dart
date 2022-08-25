@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:intl/intl.dart';
+import 'package:mobx/mobx.dart';
 import 'package:to_do/app/store/add_task_store/add_task_store.dart';
 import 'package:to_do/app/theme/custom_color.dart';
 import 'package:to_do/app/theme/custom_text_theme.dart';
@@ -10,6 +11,7 @@ import 'package:to_do/app/ui/add_task/widgets/info_picker.dart';
 import 'package:to_do/app/ui/add_task/widgets/text_input_field_type_one.dart';
 import 'package:to_do/app/ui/dialog/custom_dialog_type_one.dart';
 import 'package:to_do/app/ui/widgets/todo_button_type_one.dart';
+import 'package:to_do/core/domain/entity/db_result.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
 import 'package:to_do/core/domain/entity/repeat.dart';
 import 'package:to_do/core/domain/extension/list_ext.dart';
@@ -30,8 +32,18 @@ class AddTaskPage extends StatefulWidget {
 }
 
 class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
+  late final ReactionDisposer _addReaction;
+
+  @override
+  void initState() {
+    _addReaction = reaction<DbResult?>((_) => widget.store.dbResultStream.value,
+        (value) => showDbResultReaction(context, value));
+    super.initState();
+  }
+
   @override
   void dispose() {
+    _addReaction();
     widget.store.dispose();
     super.dispose();
   }

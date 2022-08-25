@@ -14,9 +14,6 @@ _$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
       date: jsonToDate(json['date']),
       startTime: jsonToTimeOfDay(json['startTime']),
       endTime: jsonToTimeOfDay(json['endTime']),
-      taskColor: TaskColor.fromJson(json['taskColor'] as Map<String, dynamic>),
-      remind: Remind.fromJson(json['remind'] as Map<String, dynamic>),
-      repeat: Repeat.fromJson(json['repeat'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
@@ -27,7 +24,4 @@ Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
       'date': dateToJson(instance.date),
       'startTime': timeOfDayToJson(instance.startTime),
       'endTime': timeOfDayToJson(instance.endTime),
-      'taskColor': instance.taskColor,
-      'remind': instance.remind,
-      'repeat': instance.repeat,
     };

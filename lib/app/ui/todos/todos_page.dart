@@ -6,8 +6,7 @@ import 'package:to_do/app/store/todos_store/todos_store.dart';
 import 'package:to_do/app/ui/todos/widget/todos_date_picker.dart';
 import 'package:to_do/app/ui/todos/widget/add_task_tile.dart';
 import 'package:to_do/app/ui/todos/widget/todos_app_bar.dart';
-import 'package:to_do/core/utils/easy_snackbar.dart';
-import 'package:to_do/generated/l10n.dart';
+import 'package:to_do/core/utils/todo_utils.dart';
 
 class TodosPage extends StatefulWidget {
   final TodosStore store;
@@ -21,7 +20,7 @@ class TodosPage extends StatefulWidget {
   State<TodosPage> createState() => _TodosPageState();
 }
 
-class _TodosPageState extends State<TodosPage> {
+class _TodosPageState extends State<TodosPage> with TodoUtils {
   late final ReactionDisposer themeReaction;
 
   @override
@@ -29,11 +28,7 @@ class _TodosPageState extends State<TodosPage> {
     super.initState();
     themeReaction = reaction<ThemeStatus?>(
       ((_) => widget.store.themeStream.value),
-      (value) => value == ThemeStatus.setLight
-          ? EasySnackbar.of(context: context)
-              .showSnackbar(label: S.of(context).changed_light_theme_message)
-          : EasySnackbar.of(context: context)
-              .showSnackbar(label: S.of(context).changed_dark_theme_message),
+      (value) => showThemeReaction(value, context),
     );
   }
 
