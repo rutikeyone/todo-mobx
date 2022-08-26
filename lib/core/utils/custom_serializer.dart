@@ -37,4 +37,8 @@ class CustomSerializer {
     final data = jsonDecode(json);
     return TimeOfDay(hour: data[hourValue], minute: data[minuteValue]);
   }
+
+  static bool jsonToBool(dynamic json) {
+    return json == 1 ? true : false;
+  }
 }

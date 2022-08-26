@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:to_do/app/store/task_store/task_store.dart';
 import 'package:to_do/app/store/theme/theme_store.dart';
+import 'package:to_do/core/data/model/task.dart';
 
 part 'todos_store.g.dart';
 
@@ -12,19 +14,28 @@ enum ThemeStatus { setLight, setDark }
 class TodosStore = TodosStoreBase with _$TodosStore;
 
 abstract class TodosStoreBase with Store {
+  final TaskStore _taskStore;
+
   late final ThemeStore _themeStore;
+  ThemeStore get theme => _themeStore;
+
   late final ObservableStream<ThemeStatus> themeStream;
   late final StreamController<ThemeStatus> _themeController;
-
-  ThemeStore get theme => _themeStore;
 
   @observable
   DateTime _selectedDateTime;
   DateTime get selectedDateTime => _selectedDateTime;
 
-  TodosStoreBase({required ThemeStore themeStore})
+  @computed
+  List<Task> get tasks => _taskStore.tasks
+      .where((element) =>
+          element.date.day == _selectedDateTime.day &&
+          element.date.month == _selectedDateTime.month &&
+          element.date.year == _selectedDateTime.year)
+      .toList();
+
+  TodosStoreBase(this._themeStore, this._taskStore)
       : _selectedDateTime = DateTime.now() {
-    _themeStore = themeStore;
     _themeController = BehaviorSubject();
     themeStream = ObservableStream(_themeController.stream);
     _selectedDateTime = DateTime.now();

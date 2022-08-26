@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changed_light_theme_message":
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на светлую"),
         "color": MessageLookupByLibrary.simpleMessage("Цвет"),
+        "completed": MessageLookupByLibrary.simpleMessage("выполнено"),
         "daily": MessageLookupByLibrary.simpleMessage("Ежедневно"),
         "date": MessageLookupByLibrary.simpleMessage("Дата"),
         "empty_text_field":
@@ -59,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "title": MessageLookupByLibrary.simpleMessage("Заголовок"),
         "title_hint": MessageLookupByLibrary.simpleMessage("Введите заголовок"),
         "today": MessageLookupByLibrary.simpleMessage("Сегодня"),
+        "todo": MessageLookupByLibrary.simpleMessage("Задача"),
         "twenty_minutes_early":
             MessageLookupByLibrary.simpleMessage("На 20 минут раньше"),
         "weekly": MessageLookupByLibrary.simpleMessage("Еженедельно")

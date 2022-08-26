@@ -329,6 +329,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Completed`
+  String get completed {
+    return Intl.message(
+      'Completed',
+      name: 'completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `todo`
+  String get todo {
+    return Intl.message(
+      'todo',
+      name: 'todo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -8,6 +8,7 @@ class TextInputFieldTypeOne extends StatelessWidget {
   final void Function(String) onChanged;
   final String? hint;
   final double? topPadding;
+  final TextInputAction? textInputAction;
 
   bool get hasError => error != null;
 
@@ -18,6 +19,7 @@ class TextInputFieldTypeOne extends StatelessWidget {
     this.error,
     this.hint,
     this.topPadding,
+    this.textInputAction,
   }) : super(key: key);
 
   InputBorder getOutlineInputBorder(BuildContext context) => OutlineInputBorder(
@@ -42,7 +44,7 @@ class TextInputFieldTypeOne extends StatelessWidget {
             padding: const EdgeInsets.only(top: 8),
             child: TextField(
               onChanged: onChanged,
-              textInputAction: TextInputAction.next,
+              textInputAction: textInputAction,
               decoration: InputDecoration(
                 labelStyle:
                     Theme.of(context).extension<CustomTextTheme>()!.labelStyle1,

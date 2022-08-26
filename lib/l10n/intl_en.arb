@@ -26,5 +26,7 @@
     "monthly" : "Monthly",
     "color" : "Color",
     "successfully_added" : "Successfully added",
-    "some_error_1" : "Oops, something went wrong"
+    "some_error_1" : "Oops, something went wrong",
+    "completed" : "Completed",
+    "todo" : "todo"
 }

@@ -11,6 +11,10 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
   final TextStyle hintStyle1;
   final TextStyle labelStyle1;
   final TextStyle errorStyle1;
+  final TextStyle taskTileTitle1;
+  final TextStyle taskTileSubtitle1;
+  final TextStyle taskTileSubtitle2;
+  final TextStyle taskTileSubtitle3;
 
   const CustomTextTheme({
     required this.subHeading1,
@@ -22,52 +26,68 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     required this.hintStyle1,
     required this.labelStyle1,
     required this.errorStyle1,
+    required this.taskTileTitle1,
+    required this.taskTileSubtitle1,
+    required this.taskTileSubtitle2,
+    required this.taskTileSubtitle3,
   });
 
-  static const lightTextStyle = CustomTextTheme(
-    subHeading1: TextStyle(
+  static final lightTextStyle = CustomTextTheme(
+    subHeading1: const TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.bold,
       color: Colors.grey,
     ),
-    heading1: TextStyle(
+    heading1: const TextStyle(
       fontSize: 24,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
-    heading2: TextStyle(
+    heading2: const TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: Colors.grey,
     ),
-    heading3: TextStyle(
+    heading3: const TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
-    hintStyle1: TextStyle(
+    hintStyle1: const TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.w400,
       color: Colors.grey,
     ),
-    heading4: TextStyle(
+    heading4: const TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.bold,
       color: Colors.grey,
     ),
-    button1: TextStyle(
+    button1: const TextStyle(
       color: Colors.white,
     ),
-    labelStyle1: TextStyle(
+    labelStyle1: const TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.w400,
       color: Colors.black,
     ),
-    errorStyle1: TextStyle(
+    errorStyle1: const TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w400,
       color: Colors.red,
     ),
+    taskTileTitle1: const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    taskTileSubtitle1: TextStyle(fontSize: 15, color: Colors.grey[100]),
+    taskTileSubtitle2: TextStyle(
+      fontSize: 13,
+      color: Colors.grey[100],
+    ),
+    taskTileSubtitle3: const TextStyle(
+        fontSize: 10, fontWeight: FontWeight.bold, color: Colors.white),
   );
 
   static final darkTextStyle = CustomTextTheme(
@@ -114,6 +134,18 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
       fontWeight: FontWeight.w400,
       color: Colors.red,
     ),
+    taskTileTitle1: const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    taskTileSubtitle1: TextStyle(fontSize: 15, color: Colors.grey[100]),
+    taskTileSubtitle2: TextStyle(
+      fontSize: 13,
+      color: Colors.grey[100],
+    ),
+    taskTileSubtitle3: const TextStyle(
+        fontSize: 10, fontWeight: FontWeight.bold, color: Colors.white),
   );
 
   @override
@@ -133,6 +165,13 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
       button1: TextStyle.lerp(button1, other.button1, t)!,
       labelStyle1: TextStyle.lerp(labelStyle1, other.labelStyle1, t)!,
       errorStyle1: TextStyle.lerp(errorStyle1, other.errorStyle1, t)!,
+      taskTileTitle1: TextStyle.lerp(taskTileTitle1, other.taskTileTitle1, t)!,
+      taskTileSubtitle1:
+          TextStyle.lerp(taskTileSubtitle1, other.taskTileSubtitle2, t)!,
+      taskTileSubtitle2:
+          TextStyle.lerp(taskTileSubtitle2, other.taskTileSubtitle2, t)!,
+      taskTileSubtitle3:
+          TextStyle.lerp(taskTileSubtitle3, other.taskTileSubtitle3, t)!,
     );
   }
 
@@ -147,6 +186,10 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     TextStyle? hintStyle1,
     TextStyle? labelStyle1,
     TextStyle? errorStyle1,
+    TextStyle? taskTileTitle1,
+    TextStyle? taskTileSubtitle1,
+    TextStyle? taskTileSubtitle2,
+    TextStyle? taskTileSubtitle3,
   }) {
     return CustomTextTheme(
       subHeading1: subHeading1 ?? this.subHeading1,
@@ -158,6 +201,10 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
       button1: button1 ?? this.button1,
       labelStyle1: labelStyle1 ?? this.labelStyle1,
       errorStyle1: errorStyle1 ?? this.errorStyle1,
+      taskTileTitle1: taskTileTitle1 ?? this.taskTileTitle1,
+      taskTileSubtitle1: taskTileSubtitle1 ?? this.taskTileSubtitle1,
+      taskTileSubtitle2: taskTileSubtitle2 ?? this.taskTileSubtitle2,
+      taskTileSubtitle3: taskTileSubtitle3 ?? this.taskTileSubtitle3,
     );
   }
 }

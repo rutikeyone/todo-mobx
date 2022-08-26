@@ -82,6 +82,7 @@ class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
                             error: validateTextField(
                                 widget.store.addTaskFormState.titleError,
                                 context),
+                            textInputAction: TextInputAction.next,
                           ),
                         ),
                         Observer(

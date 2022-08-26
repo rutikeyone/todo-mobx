@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changed_light_theme_message": MessageLookupByLibrary.simpleMessage(
             "You have changed the themes to light"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
+        "completed": MessageLookupByLibrary.simpleMessage("Completed"),
         "daily": MessageLookupByLibrary.simpleMessage("Daily"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "empty_text_field":
@@ -58,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "title": MessageLookupByLibrary.simpleMessage("Title"),
         "title_hint": MessageLookupByLibrary.simpleMessage("Enter title here"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
+        "todo": MessageLookupByLibrary.simpleMessage("todo"),
         "twenty_minutes_early":
             MessageLookupByLibrary.simpleMessage("20 minutes early"),
         "weekly": MessageLookupByLibrary.simpleMessage("Weekly")

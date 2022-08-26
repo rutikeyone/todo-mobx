@@ -13,6 +13,8 @@ class CustomColor extends ThemeExtension<CustomColor> {
   final Color iconColor1;
   final Color iconColor2;
 
+  final Color taskTileDivide1;
+
   const CustomColor({
     required this.primary,
     required this.yellow1,
@@ -23,6 +25,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     required this.iconColor1,
     required this.iconColor2,
     required this.darkHeader1,
+    required this.taskTileDivide1,
   });
 
   static final lightColor = CustomColor(
@@ -35,6 +38,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     iconColor1: Colors.black,
     iconColor2: Colors.white,
     darkHeader1: Colors.black,
+    taskTileDivide1: Colors.grey[200]!.withOpacity(0.7),
   );
 
   static final darkColor = CustomColor(
@@ -47,6 +51,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     iconColor1: Colors.white,
     iconColor2: Colors.white,
     darkHeader1: const Color(0xFF424242),
+    taskTileDivide1: Colors.grey[200]!.withOpacity(0.7),
   );
 
   @override
@@ -67,6 +72,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
       iconColor1: Color.lerp(iconColor1, other.iconColor1, t)!,
       iconColor2: Color.lerp(iconColor2, other.iconColor2, t)!,
       darkHeader1: Color.lerp(darkHeader1, other.darkHeader1, t)!,
+      taskTileDivide1: Color.lerp(taskTileDivide1, other.taskTileDivide1, t)!,
     );
   }
 
@@ -82,6 +88,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
     Color? iconColor1,
     Color? iconColor2,
     Color? darkHeader1,
+    Color? taskTileDivide1,
   }) {
     return CustomColor(
       primary: primary ?? this.primary,
@@ -93,6 +100,7 @@ class CustomColor extends ThemeExtension<CustomColor> {
       iconColor1: iconColor1 ?? this.iconColor1,
       iconColor2: iconColor2 ?? this.iconColor2,
       darkHeader1: darkHeader1 ?? this.darkHeader1,
+      taskTileDivide1: taskTileDivide1 ?? this.taskTileDivide1,
     );
   }
 }

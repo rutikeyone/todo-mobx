@@ -10,7 +10,7 @@ _$_Task _$$_TaskFromJson(Map<String, dynamic> json) => _$_Task(
       id: json['id'] as int?,
       title: json['title'] as String,
       note: json['note'] as String,
-      isCompleted: json['isCompleted'] as bool,
+      isCompleted: CustomSerializer.jsonToBool(json['isCompleted']),
       date: CustomSerializer.jsonToDate(json['date']),
       startTime: CustomSerializer.jsonToTimeOfDay(json['startTime']),
       endTime: CustomSerializer.jsonToTimeOfDay(json['endTime']),

@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:mobx/mobx.dart';
 import 'package:to_do/app/routes/app_router.dart';
 import 'package:to_do/app/store/todos_store/todos_store.dart';
+import 'package:to_do/app/ui/todos/widget/task_tile.dart';
 import 'package:to_do/app/ui/todos/widget/todos_date_picker.dart';
 import 'package:to_do/app/ui/todos/widget/add_task_tile.dart';
 import 'package:to_do/app/ui/todos/widget/todos_app_bar.dart';
@@ -68,7 +71,26 @@ class _TodosPageState extends State<TodosPage> with TodoUtils {
                   ),
                 ],
               ),
-            )
+            ),
+            Observer(builder: (_) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: widget.store.tasks.length,
+                  (context, index) {
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      child: SlideAnimation(
+                        child: FadeInAnimation(
+                          child: TaskTile(
+                            task: widget.store.tasks[index],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              );
+            }),
           ],
         ),
       ),
