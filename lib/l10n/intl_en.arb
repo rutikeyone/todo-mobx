@@ -31,5 +31,8 @@
     "todo" : "Todo",
     "task_completed" : "Task completed",
     "delete" : "Delete",
-    "back" : "Back"
+    "back" : "Back",
+    "scheduled_task" : "Scheduled task",
+    "task" : "Task",
+    "current_task" : "Current task"
 }

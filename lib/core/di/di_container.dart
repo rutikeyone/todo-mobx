@@ -4,6 +4,7 @@ import 'package:to_do/app/store/task_store/task_store.dart';
 import 'package:to_do/app/store/theme/theme_store.dart';
 import 'package:to_do/core/data/db/task_db.dart';
 import 'package:to_do/core/domain/service/db_service.dart';
+import 'package:to_do/core/domain/service/notification_service.dart';
 
 abstract class DIContainer {
   AppRouter makeAppRouter();
@@ -17,4 +18,6 @@ abstract class DIContainer {
   ThemeStore makeThemeStore();
 
   TaskStore makeTaskStore(DbService dbService);
+
+  NotificationService makeNotificationService();
 }

@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You have changed the themes to light"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+        "current_task": MessageLookupByLibrary.simpleMessage("Current task"),
         "daily": MessageLookupByLibrary.simpleMessage("Daily"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
@@ -49,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_hint": MessageLookupByLibrary.simpleMessage("Enter note here"),
         "remind": MessageLookupByLibrary.simpleMessage("Remind"),
         "repeat": MessageLookupByLibrary.simpleMessage("Repeat"),
+        "scheduled_task":
+            MessageLookupByLibrary.simpleMessage("Scheduled task"),
         "some_error_1":
             MessageLookupByLibrary.simpleMessage("Oops, something went wrong"),
         "start_time": MessageLookupByLibrary.simpleMessage("Start time"),
@@ -56,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Start time is after end time"),
         "successfully_added":
             MessageLookupByLibrary.simpleMessage("Successfully added"),
+        "task": MessageLookupByLibrary.simpleMessage("Task"),
         "task_completed":
             MessageLookupByLibrary.simpleMessage("Task completed"),
         "ten_minutes_early":

@@ -13,8 +13,9 @@ import 'package:to_do/app/ui/add_task/widgets/text_input_field_type_one.dart';
 import 'package:to_do/app/ui/dialog/custom_dialog_type_one.dart';
 import 'package:to_do/app/ui/widgets/todo_button_type_one.dart';
 import 'package:to_do/core/domain/entity/db_result.dart';
+import 'package:to_do/core/domain/entity/notification_action.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
-import 'package:to_do/core/domain/extension/list_ext.dart';
+import 'package:to_do/core/extension/list_ext.dart';
 import 'package:to_do/core/utils/add_task_utils.dart';
 
 import 'package:to_do/generated/l10n.dart';
@@ -33,17 +34,23 @@ class AddTaskPage extends StatefulWidget {
 
 class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
   late final StreamSubscription<DbResult> _dbResultSubscription;
+  late final StreamSubscription<NotificationAction>
+      _notificationActionSubscription;
 
   @override
   void initState() {
     _dbResultSubscription = widget.store.dbResultStream
         .listen((value) => showDbResultReaction(context, value));
+    _notificationActionSubscription = widget.store.notificationActionStream
+        .listen(
+            (value) => showScheduledNotification(context, value, widget.store));
     super.initState();
   }
 
   @override
   void dispose() {
     _dbResultSubscription.cancel();
+    _notificationActionSubscription.cancel();
     widget.store.dispose();
     super.dispose();
   }

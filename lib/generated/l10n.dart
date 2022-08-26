@@ -379,6 +379,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Scheduled task`
+  String get scheduled_task {
+    return Intl.message(
+      'Scheduled task',
+      name: 'scheduled_task',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Task`
+  String get task {
+    return Intl.message(
+      'Task',
+      name: 'task',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current task`
+  String get current_task {
+    return Intl.message(
+      'Current task',
+      name: 'current_task',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:to_do/app/store/add_task_store/add_task_store.dart';
 import 'package:to_do/core/domain/entity/db_result.dart';
 import 'package:to_do/core/domain/entity/end_date_error.dart';
 import 'package:to_do/core/domain/entity/form_error.dart';
+import 'package:to_do/core/domain/entity/notification_action.dart';
 import 'package:to_do/core/domain/entity/remind.dart';
 import 'package:to_do/core/domain/entity/start_date_error.dart';
 import 'package:to_do/core/domain/entity/task_color.dart';
@@ -68,6 +70,21 @@ class AddTaskUtils {
       },
       failure: () =>
           easySnackbar.showSnackbar(label: S.of(context).some_error_1),
+    );
+  }
+
+  void showScheduledNotification(
+    BuildContext context,
+    NotificationAction notificationAction,
+    AddTaskStore addTaskStore,
+  ) {
+    notificationAction.when(
+      addRemindScheduledNotification: (task) =>
+          addTaskStore.showRepeatScheduledNotification(S.of(context).remind,
+              "${S.of(context).scheduled_task}: ${task.title}(${task.startTime.format(context)})"),
+      addScheduledNotification: (task) =>
+          addTaskStore.showScheduledNotification(S.of(context).task,
+              "${S.of(context).current_task}: ${task.title}"),
     );
   }
 }

@@ -5,9 +5,11 @@ import 'package:to_do/app/store/theme/theme_store.dart';
 import 'package:to_do/core/data/db/impl/task_db_impl.dart';
 import 'package:to_do/core/data/db/task_db.dart';
 import 'package:to_do/core/data/service/db_repository_impl.dart';
+import 'package:to_do/core/data/service/notification_service_impl.dart';
 import 'package:to_do/core/di/di_container.dart';
 import 'package:to_do/core/di/my_app_args.dart';
 import 'package:to_do/core/domain/service/db_service.dart';
+import 'package:to_do/core/domain/service/notification_service.dart';
 import 'package:to_do/my_app.dart';
 
 DIContainer makeDIContainer() => DIContainerImpl();
@@ -34,4 +36,7 @@ class DIContainerImpl extends DIContainer {
 
   @override
   TaskStore makeTaskStore(DbService dbService) => TaskStore(dbService);
+
+  @override
+  NotificationService makeNotificationService() => NotificationServiceImpl();
 }

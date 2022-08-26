@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на светлую"),
         "color": MessageLookupByLibrary.simpleMessage("Цвет"),
         "completed": MessageLookupByLibrary.simpleMessage("выполнено"),
+        "current_task": MessageLookupByLibrary.simpleMessage("Текущая задача"),
         "daily": MessageLookupByLibrary.simpleMessage("Ежедневно"),
         "date": MessageLookupByLibrary.simpleMessage("Дата"),
         "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
@@ -50,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "note_hint": MessageLookupByLibrary.simpleMessage("Введите запись"),
         "remind": MessageLookupByLibrary.simpleMessage("Напоминание"),
         "repeat": MessageLookupByLibrary.simpleMessage("Повторение"),
+        "scheduled_task":
+            MessageLookupByLibrary.simpleMessage("Запланированная задача"),
         "some_error_1":
             MessageLookupByLibrary.simpleMessage("Упс, что-то пошло не так"),
         "start_time": MessageLookupByLibrary.simpleMessage("Начало"),
@@ -57,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Дата начала после даты окончания"),
         "successfully_added":
             MessageLookupByLibrary.simpleMessage("Успешно добавлено"),
+        "task": MessageLookupByLibrary.simpleMessage("Задача"),
         "task_completed":
             MessageLookupByLibrary.simpleMessage("Отметить как выполнено"),
         "ten_minutes_early":

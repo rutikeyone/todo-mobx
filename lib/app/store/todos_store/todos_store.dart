@@ -6,6 +6,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:to_do/app/store/task_store/task_store.dart';
 import 'package:to_do/app/store/theme/theme_store.dart';
 import 'package:to_do/core/data/model/task.dart';
+import 'package:to_do/core/domain/service/notification_service.dart';
 
 part 'todos_store.g.dart';
 
@@ -15,6 +16,7 @@ class TodosStore = TodosStoreBase with _$TodosStore;
 
 abstract class TodosStoreBase with Store {
   final TaskStore _taskStore;
+  final NotificationService _notificationService;
 
   late final ThemeStore _themeStore;
   ThemeStore get theme => _themeStore;
@@ -34,7 +36,7 @@ abstract class TodosStoreBase with Store {
           element.date.year == _selectedDateTime.year)
       .toList();
 
-  TodosStoreBase(this._themeStore, this._taskStore)
+  TodosStoreBase(this._themeStore, this._taskStore, this._notificationService)
       : _selectedDateTime = DateTime.now() {
     _themeController = BehaviorSubject();
     themeStream = ObservableStream(_themeController.stream);
@@ -61,12 +63,16 @@ abstract class TodosStoreBase with Store {
   @action
   Future removeTask(Task task) async {
     await _taskStore.remove(task.id!);
+    await _notificationService.cancelById(task.id!);
+    await _notificationService.cancelById(task.id! + 1);
   }
 
   @action
   Future competeTask(Task task) async {
     final completedTask = task.copyWith(isCompleted: true);
     await _taskStore.update(completedTask);
+    await _notificationService.cancelById(task.id!);
+    await _notificationService.cancelById(task.id! + 1);
   }
 
   void dispose() async {
