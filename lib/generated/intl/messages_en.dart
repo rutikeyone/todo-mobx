@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add_task": MessageLookupByLibrary.simpleMessage("Add task"),
+        "back": MessageLookupByLibrary.simpleMessage("Back"),
         "changed_dark_theme_message": MessageLookupByLibrary.simpleMessage(
             "You have changed the themes to dark"),
         "changed_light_theme_message": MessageLookupByLibrary.simpleMessage(
@@ -31,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
         "daily": MessageLookupByLibrary.simpleMessage("Daily"),
         "date": MessageLookupByLibrary.simpleMessage("Date"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "empty_text_field":
             MessageLookupByLibrary.simpleMessage("Empty text field"),
         "end_time": MessageLookupByLibrary.simpleMessage("End time"),
@@ -54,12 +56,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Start time is after end time"),
         "successfully_added":
             MessageLookupByLibrary.simpleMessage("Successfully added"),
+        "task_completed":
+            MessageLookupByLibrary.simpleMessage("Task completed"),
         "ten_minutes_early":
             MessageLookupByLibrary.simpleMessage("10 minutes early"),
         "title": MessageLookupByLibrary.simpleMessage("Title"),
         "title_hint": MessageLookupByLibrary.simpleMessage("Enter title here"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
-        "todo": MessageLookupByLibrary.simpleMessage("todo"),
+        "todo": MessageLookupByLibrary.simpleMessage("Todo"),
         "twenty_minutes_early":
             MessageLookupByLibrary.simpleMessage("20 minutes early"),
         "weekly": MessageLookupByLibrary.simpleMessage("Weekly")

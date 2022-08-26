@@ -6,6 +6,7 @@ import 'package:mobx/mobx.dart';
 import 'package:to_do/app/routes/app_router.dart';
 import 'package:to_do/app/store/todos_store/todos_store.dart';
 import 'package:to_do/app/ui/todos/widget/task_tile.dart';
+import 'package:to_do/app/ui/todos/widget/task_tile_modal_bottom_sheet.dart';
 import 'package:to_do/app/ui/todos/widget/todos_date_picker.dart';
 import 'package:to_do/app/ui/todos/widget/add_task_tile.dart';
 import 'package:to_do/app/ui/todos/widget/todos_app_bar.dart';
@@ -83,6 +84,19 @@ class _TodosPageState extends State<TodosPage> with TodoUtils {
                         child: FadeInAnimation(
                           child: TaskTile(
                             task: widget.store.tasks[index],
+                            onTap: (value) => showModalBottomSheet(
+                              context: context,
+                              builder: (context) {
+                                return TaskTileModalBottomSheet(
+                                  deleteTask: () => widget.store
+                                      .removeTask(widget.store.tasks[index]),
+                                  completeTask: () => widget.store
+                                      .competeTask(widget.store.tasks[index]),
+                                  visibilityCompleteButton:
+                                      !widget.store.tasks[index].isCompleted,
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ),

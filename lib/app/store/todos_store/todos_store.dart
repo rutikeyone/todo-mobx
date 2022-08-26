@@ -58,6 +58,17 @@ abstract class TodosStoreBase with Store {
     _selectedDateTime = date;
   }
 
+  @action
+  Future removeTask(Task task) async {
+    await _taskStore.remove(task.id!);
+  }
+
+  @action
+  Future competeTask(Task task) async {
+    final completedTask = task.copyWith(isCompleted: true);
+    await _taskStore.update(completedTask);
+  }
+
   void dispose() async {
     await themeStream.close();
     await _themeController.close();

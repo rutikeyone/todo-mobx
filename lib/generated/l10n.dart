@@ -340,11 +340,41 @@ class S {
     );
   }
 
-  /// `todo`
+  /// `Todo`
   String get todo {
     return Intl.message(
-      'todo',
+      'Todo',
       name: 'todo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Task completed`
+  String get task_completed {
+    return Intl.message(
+      'Task completed',
+      name: 'task_completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
       desc: '',
       args: [],
     );

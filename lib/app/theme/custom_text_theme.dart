@@ -15,6 +15,8 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
   final TextStyle taskTileSubtitle1;
   final TextStyle taskTileSubtitle2;
   final TextStyle taskTileSubtitle3;
+  final TextStyle modalBottomSheetButton1;
+  final TextStyle modalBottomSheetButton2;
 
   const CustomTextTheme({
     required this.subHeading1,
@@ -30,6 +32,8 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     required this.taskTileSubtitle1,
     required this.taskTileSubtitle2,
     required this.taskTileSubtitle3,
+    required this.modalBottomSheetButton1,
+    required this.modalBottomSheetButton2,
   });
 
   static final lightTextStyle = CustomTextTheme(
@@ -88,6 +92,16 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     ),
     taskTileSubtitle3: const TextStyle(
         fontSize: 10, fontWeight: FontWeight.bold, color: Colors.white),
+    modalBottomSheetButton1: const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    modalBottomSheetButton2: const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
   );
 
   static final darkTextStyle = CustomTextTheme(
@@ -146,6 +160,16 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     ),
     taskTileSubtitle3: const TextStyle(
         fontSize: 10, fontWeight: FontWeight.bold, color: Colors.white),
+    modalBottomSheetButton1: const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
+    modalBottomSheetButton2: const TextStyle(
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
   );
 
   @override
@@ -172,6 +196,10 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
           TextStyle.lerp(taskTileSubtitle2, other.taskTileSubtitle2, t)!,
       taskTileSubtitle3:
           TextStyle.lerp(taskTileSubtitle3, other.taskTileSubtitle3, t)!,
+      modalBottomSheetButton1: TextStyle.lerp(
+          modalBottomSheetButton1, other.modalBottomSheetButton1, t)!,
+      modalBottomSheetButton2: TextStyle.lerp(
+          modalBottomSheetButton2, other.modalBottomSheetButton2, t)!,
     );
   }
 
@@ -190,6 +218,8 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     TextStyle? taskTileSubtitle1,
     TextStyle? taskTileSubtitle2,
     TextStyle? taskTileSubtitle3,
+    TextStyle? modalBottomSheetButton1,
+    TextStyle? modalBottomSheetButton2,
   }) {
     return CustomTextTheme(
       subHeading1: subHeading1 ?? this.subHeading1,
@@ -205,6 +235,10 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
       taskTileSubtitle1: taskTileSubtitle1 ?? this.taskTileSubtitle1,
       taskTileSubtitle2: taskTileSubtitle2 ?? this.taskTileSubtitle2,
       taskTileSubtitle3: taskTileSubtitle3 ?? this.taskTileSubtitle3,
+      modalBottomSheetButton1:
+          modalBottomSheetButton1 ?? this.modalBottomSheetButton1,
+      modalBottomSheetButton2:
+          modalBottomSheetButton2 ?? this.modalBottomSheetButton2,
     );
   }
 }

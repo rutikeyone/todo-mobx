@@ -28,5 +28,8 @@
     "successfully_added" : "Successfully added",
     "some_error_1" : "Oops, something went wrong",
     "completed" : "Completed",
-    "todo" : "todo"
+    "todo" : "Todo",
+    "task_completed" : "Task completed",
+    "delete" : "Delete",
+    "back" : "Back"
 }

@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add_task": MessageLookupByLibrary.simpleMessage("Добавить"),
+        "back": MessageLookupByLibrary.simpleMessage("Назад"),
         "changed_dark_theme_message":
             MessageLookupByLibrary.simpleMessage("Вы изменили цвет на темную"),
         "changed_light_theme_message":
@@ -31,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "completed": MessageLookupByLibrary.simpleMessage("выполнено"),
         "daily": MessageLookupByLibrary.simpleMessage("Ежедневно"),
         "date": MessageLookupByLibrary.simpleMessage("Дата"),
+        "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
         "empty_text_field":
             MessageLookupByLibrary.simpleMessage("Пустое текстовое поле"),
         "end_time": MessageLookupByLibrary.simpleMessage("Конец"),
@@ -55,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Дата начала после даты окончания"),
         "successfully_added":
             MessageLookupByLibrary.simpleMessage("Успешно добавлено"),
+        "task_completed":
+            MessageLookupByLibrary.simpleMessage("Отметить как выполнено"),
         "ten_minutes_early":
             MessageLookupByLibrary.simpleMessage("На 10 минут раньше"),
         "title": MessageLookupByLibrary.simpleMessage("Заголовок"),
