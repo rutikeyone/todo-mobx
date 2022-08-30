@@ -62,7 +62,7 @@ class _TodosPageState extends State<TodosPage> with TodoUtils {
                       children: [
                         AddTaskTile(
                           addTaskOnPressed: () =>
-                              context.router.push(AddTaskScreenRoute()),
+                              context.router.push(const AddTaskScreenRoute()),
                         ),
                         TodosDatePicker(
                           changeDateTime: widget.store.changeSelectedDateTime,

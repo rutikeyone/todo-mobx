@@ -1,5 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:to_do/core/domain/entity/notice.dart';
@@ -8,15 +9,14 @@ import 'package:to_do/core/domain/service/notification_service.dart';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:timezone/data/latest.dart' as tl;
 import 'package:timezone/timezone.dart' as tz;
 
 class NotificationServiceImpl extends NotificationService {
   final _notification = FlutterLocalNotificationsPlugin();
-  final onNotification = BehaviorSubject<String?>();
 
-  Future<InitializationSettings> _init({bool iniScheluted = false}) async {
+  @override
+  Future init({bool inScheluted = false}) async {
     const androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
     const iOSSettings = IOSInitializationSettings();
@@ -28,36 +28,15 @@ class NotificationServiceImpl extends NotificationService {
     if (details != null && details.didNotificationLaunchApp) {
       onNotification.add(details.payload);
     }
-    if (iniScheluted) {
+    if (inScheluted) {
       final locationName = await FlutterNativeTimezone.getLocalTimezone();
       tz.setLocalLocation(tz.getLocation(locationName));
     }
-    return settings;
-  }
 
-  @override
-  Future init({bool iniScheluted = false}) async {
-    final settings = await _init(iniScheluted: iniScheluted);
     await _notification.initialize(
       settings,
       onSelectNotification: (payload) async {
         onNotification.add(payload);
-      },
-    );
-  }
-
-  @override
-  Future initWithRemind(Function(int) selectRemind, Function(int) selectTask,
-      {bool iniScheluted = false}) async {
-    final settings = await _init(iniScheluted: iniScheluted);
-    await _notification.initialize(
-      settings,
-      onSelectNotification: (payload) async {
-        onNotification.add(payload);
-        _selectNotification(
-            selectRemind: selectRemind,
-            selectTask: selectTask,
-            payload: payload);
       },
     );
   }
@@ -120,21 +99,5 @@ class NotificationServiceImpl extends NotificationService {
   @override
   Future<void> cancelById(int id) async {
     return await _notification.cancel(id);
-  }
-
-  void _selectNotification({
-    required String? payload,
-    required Function(int) selectRemind,
-    required Function(int) selectTask,
-  }) {
-    if (payload != null) {
-      final notificationPayload =
-          NotificationPayload.fromJson(jsonDecode(payload));
-      if (notificationPayload.isRemind) {
-        selectRemind(notificationPayload.id);
-      } else {
-        selectTask(notificationPayload.id);
-      }
-    }
   }
 }

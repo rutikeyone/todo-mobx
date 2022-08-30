@@ -1,11 +1,11 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:to_do/core/domain/entity/notice.dart';
 
 abstract class NotificationService {
-  Future init({bool iniScheluted = false});
+  final onNotification = BehaviorSubject<String?>();
 
-  Future initWithRemind(Function(int) selectRemind, Function(int) selectTask,
-      {bool iniScheluted = false});
+  Future init({bool inScheluted = false});
 
   Future<void> showScheduledNotification({
     required Notice notice,

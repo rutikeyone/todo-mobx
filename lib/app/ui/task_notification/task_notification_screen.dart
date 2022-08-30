@@ -9,6 +9,6 @@ class TaskNotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TaskNotificationPage();
+    return TaskNotificationPage(task: task);
   }
 }

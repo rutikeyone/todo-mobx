@@ -4,8 +4,8 @@ import 'package:to_do/app/store/task_store/task_store.dart';
 import 'package:to_do/app/store/theme/theme_store.dart';
 import 'package:to_do/app/store/todos_store/todos_store.dart';
 import 'package:to_do/app/ui/todos/todos_page.dart';
-import 'package:to_do/core/di/service_creater.dart';
 import 'package:to_do/core/di/service_locator/locator.dart';
+import 'package:to_do/core/domain/service/notification_service.dart';
 
 class TodosScreen extends StatelessWidget {
   final TodosStore _todosStore;
@@ -13,7 +13,7 @@ class TodosScreen extends StatelessWidget {
       : _todosStore = TodosStore(
           locator.get<ThemeStore>(),
           locator.get<TaskStore>(),
-          locator.get<ServiceCreater>().makeNotificationService()..init(),
+          locator.get<NotificationService>(),
         ),
         super(key: key);
 
