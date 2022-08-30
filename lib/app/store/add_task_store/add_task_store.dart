@@ -60,6 +60,7 @@ abstract class AddTaskStoreBase with Store {
   AddTaskStoreBase(this._taskStore, this._notificationService) {
     _dbResultController = BehaviorSubject();
     _notificationActionController = BehaviorSubject();
+
     dbResultStream = ObservableStream(_dbResultController.stream);
     notificationActionStream =
         ObservableStream(_notificationActionController.stream);
@@ -169,7 +170,12 @@ abstract class AddTaskStoreBase with Store {
 
   void showRepeatScheduledNotification(String title, String message) {
     final task = _taskStore.tasks.last;
-    final notice = Notice(id: task.id!, title: title, body: message);
+    final notice = Notice(
+        id: task.id!,
+        taskId: task.id!,
+        isRemind: true,
+        title: title,
+        body: message);
     final day = date;
     final remindTime = remind.when(
         fiveMinutesEarly: () => startTime.subtractMinute(-5),
@@ -184,7 +190,12 @@ abstract class AddTaskStoreBase with Store {
 
   void showScheduledNotification(String title, String message) {
     final task = _taskStore.tasks.last;
-    final notice = Notice(id: task.id! + 1, title: title, body: message);
+    final notice = Notice(
+        id: task.id! + 1,
+        taskId: task.id!,
+        isRemind: false,
+        title: title,
+        body: message);
     final day = date;
     final time = Time(startTime.hour, startTime.minute);
 

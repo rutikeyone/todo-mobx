@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:mobx/mobx.dart';
 import 'package:to_do/core/data/model/task.dart';
 import 'package:to_do/core/domain/entity/db_result.dart';
@@ -49,4 +51,6 @@ abstract class TaskStoreBase with Store {
     );
     return dbResult;
   }
+
+  Task? getTaskById(int id) => tasks.firstWhere((element) => element.id == id);
 }

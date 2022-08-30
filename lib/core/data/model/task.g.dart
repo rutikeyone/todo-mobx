@@ -22,7 +22,7 @@ Map<String, dynamic> _$$_TaskToJson(_$_Task instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'note': instance.note,
-      'isCompleted': instance.isCompleted,
+      'isCompleted': CustomSerializer.boolToInt(instance.isCompleted),
       'date': CustomSerializer.dateToJson(instance.date),
       'startTime': CustomSerializer.timeOfDayToJson(instance.startTime),
       'endTime': CustomSerializer.timeOfDayToJson(instance.endTime),

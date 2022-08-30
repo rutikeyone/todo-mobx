@@ -16,7 +16,7 @@ class Task with _$Task {
     final int? id,
     required final String title,
     required final String note,
-    @JsonKey(fromJson: CustomSerializer.jsonToBool)
+    @JsonKey(toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
         required final bool isCompleted,
     @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
         required final DateTime date,

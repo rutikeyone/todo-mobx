@@ -26,7 +26,7 @@ class TaskDatabaseImpl extends TaskDatabase {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
         note TEXT NOT NULL,
-        isCompleted BOOLEAN NOT NULL,
+        isCompleted INTEGER NOT NULL,
         date TEXT NOT NULL,
         startTime TEXT NOT NULL,
         endTime TEXT NOT NULL,
@@ -47,12 +47,11 @@ class TaskDatabaseImpl extends TaskDatabase {
   Future<List<Task>> getTasks() async {
     final db = await instance.database;
     final tasksQuery = await db.query(tasksValue);
-
-    List<Task> habits = tasksQuery.isNotEmpty
+    List<Task> tasks = tasksQuery.isNotEmpty
         ? tasksQuery.map((e) => Task.fromJson(e)).toList()
         : [];
 
-    return habits;
+    return tasks;
   }
 
   @override

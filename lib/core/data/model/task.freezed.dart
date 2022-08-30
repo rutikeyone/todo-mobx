@@ -23,7 +23,8 @@ mixin _$Task {
   int? get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: CustomSerializer.jsonToBool)
+  @JsonKey(
+      toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
   bool get isCompleted => throw _privateConstructorUsedError;
   @JsonKey(
       toJson: CustomSerializer.dateToJson,
@@ -59,7 +60,7 @@ abstract class $TaskCopyWith<$Res> {
       {int? id,
       String title,
       String note,
-      @JsonKey(fromJson: CustomSerializer.jsonToBool)
+      @JsonKey(toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
           bool isCompleted,
       @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           DateTime date,
@@ -160,7 +161,7 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
       {int? id,
       String title,
       String note,
-      @JsonKey(fromJson: CustomSerializer.jsonToBool)
+      @JsonKey(toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
           bool isCompleted,
       @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           DateTime date,
@@ -248,7 +249,7 @@ class _$_Task implements _Task {
       {this.id,
       required this.title,
       required this.note,
-      @JsonKey(fromJson: CustomSerializer.jsonToBool)
+      @JsonKey(toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
           required this.isCompleted,
       @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           required this.date,
@@ -270,7 +271,8 @@ class _$_Task implements _Task {
   @override
   final String note;
   @override
-  @JsonKey(fromJson: CustomSerializer.jsonToBool)
+  @JsonKey(
+      toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
   final bool isCompleted;
   @override
   @JsonKey(
@@ -352,7 +354,7 @@ abstract class _Task implements Task {
       {final int? id,
       required final String title,
       required final String note,
-      @JsonKey(fromJson: CustomSerializer.jsonToBool)
+      @JsonKey(toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
           required final bool isCompleted,
       @JsonKey(toJson: CustomSerializer.dateToJson, fromJson: CustomSerializer.jsonToDate)
           required final DateTime date,
@@ -374,7 +376,8 @@ abstract class _Task implements Task {
   @override
   String get note;
   @override
-  @JsonKey(fromJson: CustomSerializer.jsonToBool)
+  @JsonKey(
+      toJson: CustomSerializer.boolToInt, fromJson: CustomSerializer.jsonToBool)
   bool get isCompleted;
   @override
   @JsonKey(

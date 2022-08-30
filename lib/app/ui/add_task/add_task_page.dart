@@ -44,6 +44,7 @@ class _AddTaskPageState extends State<AddTaskPage> with AddTaskUtils {
     _notificationActionSubscription = widget.store.notificationActionStream
         .listen(
             (value) => showScheduledNotification(context, value, widget.store));
+
     super.initState();
   }
 

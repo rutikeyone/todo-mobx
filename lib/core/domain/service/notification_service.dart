@@ -4,6 +4,9 @@ import 'package:to_do/core/domain/entity/notice.dart';
 abstract class NotificationService {
   Future init({bool iniScheluted = false});
 
+  Future initWithRemind(Function(int) selectRemind, Function(int) selectTask,
+      {bool iniScheluted = false});
+
   Future<void> showScheduledNotification({
     required Notice notice,
     required Time time,

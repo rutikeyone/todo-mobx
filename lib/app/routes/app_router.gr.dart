@@ -24,10 +24,14 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: TodosScreen(key: args.key));
     },
     AddTaskScreenRoute.name: (routeData) {
-      final args = routeData.argsAs<AddTaskScreenRouteArgs>(
-          orElse: () => const AddTaskScreenRouteArgs());
       return CupertinoPageX<dynamic>(
-          routeData: routeData, child: AddTaskScreen(key: args.key));
+          routeData: routeData, child: const AddTaskScreen());
+    },
+    TaskNotificationScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<TaskNotificationScreenRouteArgs>();
+      return CupertinoPageX<dynamic>(
+          routeData: routeData,
+          child: TaskNotificationScreen(key: args.key, task: args.task));
     }
   };
 
@@ -36,7 +40,9 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig('/#redirect',
             path: '/', redirectTo: 'todo-screen', fullMatch: true),
         RouteConfig(TodosScreenRoute.name, path: 'todo-screen'),
-        RouteConfig(AddTaskScreenRoute.name, path: 'add-task-screen')
+        RouteConfig(AddTaskScreenRoute.name, path: 'add-task-screen'),
+        RouteConfig(TaskNotificationScreenRoute.name,
+            path: 'task-notification-screen')
       ];
 }
 
@@ -63,21 +69,34 @@ class TodosScreenRouteArgs {
 
 /// generated route for
 /// [AddTaskScreen]
-class AddTaskScreenRoute extends PageRouteInfo<AddTaskScreenRouteArgs> {
-  AddTaskScreenRoute({Key? key})
-      : super(AddTaskScreenRoute.name,
-            path: 'add-task-screen', args: AddTaskScreenRouteArgs(key: key));
+class AddTaskScreenRoute extends PageRouteInfo<void> {
+  const AddTaskScreenRoute()
+      : super(AddTaskScreenRoute.name, path: 'add-task-screen');
 
   static const String name = 'AddTaskScreenRoute';
 }
 
-class AddTaskScreenRouteArgs {
-  const AddTaskScreenRouteArgs({this.key});
+/// generated route for
+/// [TaskNotificationScreen]
+class TaskNotificationScreenRoute
+    extends PageRouteInfo<TaskNotificationScreenRouteArgs> {
+  TaskNotificationScreenRoute({Key? key, required Task task})
+      : super(TaskNotificationScreenRoute.name,
+            path: 'task-notification-screen',
+            args: TaskNotificationScreenRouteArgs(key: key, task: task));
+
+  static const String name = 'TaskNotificationScreenRoute';
+}
+
+class TaskNotificationScreenRouteArgs {
+  const TaskNotificationScreenRouteArgs({this.key, required this.task});
 
   final Key? key;
 
+  final Task task;
+
   @override
   String toString() {
-    return 'AddTaskScreenRouteArgs{key: $key}';
+    return 'TaskNotificationScreenRouteArgs{key: $key, task: $task}';
   }
 }

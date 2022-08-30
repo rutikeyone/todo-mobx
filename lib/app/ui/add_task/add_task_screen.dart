@@ -3,17 +3,31 @@ import 'package:provider/provider.dart';
 import 'package:to_do/app/store/add_task_store/add_task_store.dart';
 import 'package:to_do/app/store/task_store/task_store.dart';
 import 'package:to_do/app/ui/add_task/add_task_page.dart';
+import 'package:to_do/core/di/service_creater.dart';
 import 'package:to_do/core/di/service_locator/locator.dart';
-import 'package:to_do/core/domain/service/notification_service.dart';
 
-class AddTaskScreen extends StatelessWidget {
-  final AddTaskStore _addTaskStore;
-  AddTaskScreen({Key? key})
-      : _addTaskStore = AddTaskStore(
-          locator.get<TaskStore>(),
-          locator.get<NotificationService>(),
+class AddTaskScreen extends StatefulWidget {
+  const AddTaskScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AddTaskScreen> createState() => _AddTaskScreenState();
+}
+
+class _AddTaskScreenState extends State<AddTaskScreen> {
+  late final AddTaskStore _addTaskStore;
+
+  @override
+  void initState() {
+    _addTaskStore = AddTaskStore(
+      locator.get<TaskStore>(),
+      locator.get<ServiceCreater>().makeNotificationService()
+        ..initWithRemind(
+          (id) {},
+          (id) {},
         ),
-        super(key: key);
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
