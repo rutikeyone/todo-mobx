@@ -5,9 +5,10 @@ The TodoMobx mobile application with adding and removing notes with notification
 ## Screenshots
 
 <p align="center">
-<img src="https://github.com/RuTiKeyOne/InstagramClone/blob/dev/doc/screenshots/1.png" width="250"/>
-<img src="https://github.com/RuTiKeyOne/InstagramClone/blob/dev/doc/screenshots/2.png" width="250"/>
-<img src="https://github.com/RuTiKeyOne/InstagramClone/blob/dev/doc/screenshots/3.png" width="250"/>
+<img src="https://github.com/RuTiKeyOne/TodoMobx/blob/master/doc/screenshots/1.png" width="225"/>
+<img src="https://github.com/RuTiKeyOne/TodoMobx/blob/master/doc/screenshots/2.png" width="225"/>
+<img src="https://github.com/RuTiKeyOne/TodoMobx/blob/master/doc/screenshots/3.png" width="225"/>
+<img src="https://github.com/RuTiKeyOne/TodoMobx/blob/master/doc/screenshots/4.png" width="225"/>
 </p>
 
 ## What functionality does the application provide to the user?
