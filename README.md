@@ -12,7 +12,7 @@ The TodoMobx mobile application with adding and removing notes with notification
 </p>
 
 ## Video
-[![Watch the video](https://github.com/RuTiKeyOne/Habits/blob/master/doc/screenshots/videoscreenshots.PNG)](https://www.youtube.com/shorts/0Gg_hQvb3KE)
+[![Watch the video](https://github.com/RuTiKeyOne/TodoMobx/blob/master/doc/screenshots/video_screenshot.jpg)](https://www.youtube.com/shorts/0Gg_hQvb3KE)
 
 ## What functionality does the application provide to the user?
 
