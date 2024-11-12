@@ -17,7 +17,7 @@ The todo-mobx mobile application with adding and removing notes with notificatio
 * `Add note with notification`
 * `Remove note` 
 * `Mark as completed`
-* `Go to Notification Tasks`
+* `Go to notification tasks`
 * `Change the theme`.
   
 ## Screenshots
