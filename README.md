@@ -5,6 +5,13 @@
 The todo-mobx mobile application with adding and removing notes with notification.
 
 ## Technologies used
+* `Dart`;
+* `Flutter`;
+* `Local Notifications`;
+* `Hive`;
+* `Mobx`;
+* `RxDart`;
+* `Sqflite`.
 
 ## Features
 * `Add note with notification`
@@ -12,7 +19,7 @@ The todo-mobx mobile application with adding and removing notes with notificatio
 * `Mark as completed`
 * `Go to Notification Tasks`
 * `Change the theme`.
-
+  
 ## Screenshots
 
 <p align="start">
