@@ -14,10 +14,10 @@ The todo-mobx mobile application with adding and removing notes with notificatio
 * `Sqflite`.
 
 ## Features
-* `Add note with notification`
-* `Remove note` 
-* `Mark as completed`
-* `Go to notification tasks`
+* `Add note with notification`;
+* `Remove note`;
+* `Mark as completed`;
+* `Go to notification tasks`;
 * `Change the theme`.
   
 ## Screenshots
